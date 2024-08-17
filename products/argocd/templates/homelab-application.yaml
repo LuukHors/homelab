@@ -9,7 +9,7 @@ spec:
   project: always-sync
   source:
     repoURL: https://github.com/LuukHors/homelab.git
-    targetRevision: HEAD
+    targetRevision: init-homelab
     path: homelab
   destination:
     server: https://kubernetes.default.svc
