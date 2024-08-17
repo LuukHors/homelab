@@ -9,8 +9,8 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+	project: default
   source:
-    project: default
     repoURL: https://github.com/LuukHors/homelab.git
     targetRevision: init-homelab
     path: products/{{ $productName }}
