@@ -1,5 +1,5 @@
 homelab:
-  deploy: false
+  deploy: true
   products:
     argocd:
       deploy: true
