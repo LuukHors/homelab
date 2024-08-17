@@ -4,6 +4,11 @@ argo-cd:
     logging:
       format: json
       level: warn
+  
+  configs:
+    cm:
+      create: true
+      exec.enabled: true
 
   controller:
     replicas: 1
