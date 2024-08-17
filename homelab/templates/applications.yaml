@@ -9,7 +9,6 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: always-sync
   source:
     repoURL: https://github.com/LuukHors/homelab.git
     targetRevision: init-homelab
