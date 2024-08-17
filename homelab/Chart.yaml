@@ -1,0 +1,4 @@
+apiVersion: v2
+name: homelab
+description: All products for my home lab kubernetes cluster
+version: 0.1.0
