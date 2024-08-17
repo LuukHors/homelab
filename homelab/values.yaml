@@ -1,2 +1,5 @@
-products:
+homelab:
   deploy: false
+  products:
+    argocd:
+      deploy: true

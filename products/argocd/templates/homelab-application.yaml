@@ -1,6 +1,3 @@
-{{- if .Values.homelab.deploy }}
-{{- range $productName, $productInfo := .Values.homelab.products }}
-{{- if $productInfo.deploy }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -12,12 +9,12 @@ spec:
   project: always-sync
   source:
     repoURL: https://github.com/LuukHors/homelab.git
-    targetRevision: init-homelab
-    path: products/{{ $productName }}
+    targetRevision: HEAD
+    path: homelab
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ $productName }}
-  revisionHistoryLimit: 1
+    namespace: default
+  revisionHistoryLimit: 2
   syncPolicy:
     automated:
       prune: true
@@ -28,6 +25,3 @@ spec:
         duration: 5s
         factor: 5
         maxDuration: 10m
-{{ end -}}
-{{ end -}}
-{{ end -}}
