@@ -1,6 +1,6 @@
 metallb:
   rbac:
-    create: false
+    create: true
 
   controller:
     enabled: true
