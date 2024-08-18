@@ -3,3 +3,6 @@ homelab:
   products:
     argocd:
       deploy: true
+    metallb:
+      deploy: true
+      appRevision: add-metallb
