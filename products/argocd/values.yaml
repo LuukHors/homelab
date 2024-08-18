@@ -1,0 +1,58 @@
+argo-cd:
+  global:
+    revisionHistoryLimit: 0
+    logging:
+      format: json
+      level: warn
+  
+  configs:
+    cm:
+      create: true
+      exec.enabled: true
+
+  controller:
+    replicas: 1
+    resources:
+      limits:
+        memory: 2048Mi
+      requests:
+        cpu: 130m
+        memory: 512Mi
+  
+  redis:
+    enabled: true
+    resources:
+      limits:
+        memory: 256Mi
+      requests:
+        cpu: 50m
+        memory: 128Mi
+    exporter:
+      enabled: false
+
+  server:
+    replicas: 1
+    resources:
+      limits:
+        memory: 512Mi
+      requests:
+        cpu: 70m
+        memory: 128Mi
+
+  repoServer:
+    replicas: 1
+    resources:
+      limits:
+        memory: 1024Mi
+      requests:
+        cpu: 50m
+        memory: 256Mi
+        
+  applicationSet:
+    replicas: 0
+    serviceAccount:
+      create: false
+      allowAnyNamespace: false
+      
+  notifications:
+    enabled: false
