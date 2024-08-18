@@ -2,7 +2,7 @@ apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
   name: homepool-advertisement
-  namespace: {{ .Release.Namespace }}
+  namespace: metallb-system
 spec:
   ipAddressPools:
   - homepool
