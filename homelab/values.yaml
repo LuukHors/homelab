@@ -5,4 +5,4 @@ homelab:
       deploy: true
     metallb:
       deploy: true
-      appRevision: add-metallb
+      targetRevision: add-metallb
