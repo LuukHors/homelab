@@ -5,3 +5,6 @@ homelab:
       deploy: true
     metallb:
       deploy: true
+    ingress-nginx:
+      deploy: true
+      targetRevision: add-ingress-nginx
