@@ -30,18 +30,18 @@ ingress-nginx:
   revisionHistoryLimit: 0
 
   defaultBackend:
-    enabled: true
-    image:
-      repository: ghcr.io/tarampampam/error-pages
-      tag: 3.3.0
-    extraEnvs:
-      - name: TEMPLATE_NAME
-        value: ghost
-      - name: SHOW_DETAILS
-        value: 'true'
-    resources:
-      limits:
-        memory: 20Mi
-      requests:
-        cpu: 10m
-        memory: 10Mis
+    enabled: false
+    # image:
+    #   repository: ghcr.io/tarampampam/error-pages
+    #   tag: 3.3.0
+    # extraEnvs:
+    #   - name: TEMPLATE_NAME
+    #     value: ghost
+    #   - name: SHOW_DETAILS
+    #     value: 'true'
+    # resources:
+    #   limits:
+    #     memory: 20Mi
+    #   requests:
+    #     cpu: 10m
+    #     memory: 10Mis
