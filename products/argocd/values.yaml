@@ -43,10 +43,10 @@ argo-cd:
       enabled: true
       annotations:
         # cert-manager.io/cluster-issuer: letsencrypt-dns
-        # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
         nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
       hostname: argocd.sealeo.io
-      # tls: true
+      tls: false
 
   repoServer:
     replicas: 1
