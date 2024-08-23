@@ -1,0 +1,33 @@
+sealed-secrets:
+  createController: true
+  keyrenewperiod: "0"
+
+  resources:
+    limits: {}
+    requests: {}
+ 
+  service:
+    type: ClusterIP
+    port: 8080
+
+  ingress:
+    enabled: true
+    hostname: sealed-secrets.internal.sealeo.io
+    path: /v1/cert.pem
+    tls: false
+
+  rbac:
+    create: true
+
+  metrics:
+    serviceMonitor:
+      enabled: false
+    dashboards:
+      create: false
+    service:
+      type: ClusterIP
+      port: 8081
+  
+  pdb:
+    create: false
+    minAvailable: 1
