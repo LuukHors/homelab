@@ -18,6 +18,11 @@ ingress-nginx:
     minAvailable: 1
     maxUnavailable: 1
 
+      
+    kind: DaemonSet
+    minAvailable: 1
+    maxUnavailable: 1
+
     resources:
       limits:
         memory: 1024Mi
