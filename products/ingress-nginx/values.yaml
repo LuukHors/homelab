@@ -18,6 +18,11 @@ ingress-nginx:
     minAvailable: 1
     maxUnavailable: 1
 
+      
+    kind: DaemonSet
+    minAvailable: 1
+    maxUnavailable: 1
+
     resources:
       limits:
         memory: 1024Mi
@@ -31,17 +36,3 @@ ingress-nginx:
 
   defaultBackend:
     enabled: false
-    # image:
-    #   repository: ghcr.io/tarampampam/error-pages
-    #   tag: 3.3.0
-    # extraEnvs:
-    #   - name: TEMPLATE_NAME
-    #     value: ghost
-    #   - name: SHOW_DETAILS
-    #     value: 'true'
-    # resources:
-    #   limits:
-    #     memory: 20Mi
-    #   requests:
-    #     cpu: 10m
-    #     memory: 10Mis
