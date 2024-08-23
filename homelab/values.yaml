@@ -9,4 +9,3 @@ homelab:
       deploy: true
     sealed-secrets:
       deploy: true
-      targetRevision: add-sealed-secrets
