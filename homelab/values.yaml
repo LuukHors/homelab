@@ -9,3 +9,6 @@ homelab:
       deploy: true
     sealed-secrets:
       deploy: true
+    external-dns:
+      deploy: true
+      targetRevision: 'add-external-dns'
