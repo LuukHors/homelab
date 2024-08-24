@@ -4,8 +4,10 @@ external-dns:
     - service
     - ingress
 
-  publishHostIP: true
   provider: cloudflare
+
+  extraArgs:
+    exclude-target-net: 192.168.0.0/16
 
   validation:
     enabled: true
