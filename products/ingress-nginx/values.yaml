@@ -13,12 +13,11 @@ ingress-nginx:
       load-balance: "ewma"
     ingressClassResource:
       default: true
-      
-    kind: DaemonSet
-    minAvailable: 1
-    maxUnavailable: 1
 
-      
+    service:
+      externalIPs:
+        - 84.106.173.75
+
     kind: DaemonSet
     minAvailable: 1
     maxUnavailable: 1
