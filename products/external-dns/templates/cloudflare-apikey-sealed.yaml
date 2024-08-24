@@ -1,0 +1,12 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: cloudflare-apikey
+  namespace: external-dns
+spec:
+  encryptedData:
+    cloudflare_api_key: AgAI2/jKiQ2z7Zm/6WCvSIoogt5niQqWdTeOnjehwB+8uuVEFYQIGWHRA4pe3EZnuriPzURtlekIR8FYIHSwwDjCYkdQfCgC50A3g68Ftsduzs1k0rAeCpPyaByIWx8Rcfx0tnRs63gX95bE8MRHpBeaZDl4EKKjcfqnaa6nMrl8NVFj5hbow6zVXy6iKqdCYnkBbzhyRnDCy3hS3Mvk3KxXWrnKWU5FCp/4US5cCgbCtS24cQZl6tgy1CEC2A08VcGrpIl8bFPgJ3zxPndILKuH2bwJSKYW107qC75MkJC89oDVwbvHOHmp+LWc5xZV4dTbjTbBLBICxuDg6gaX5tuOwD+gq6W83zbXJz8RCEw82A7QlDQH0tpVNOOBhfFy4hrD4N55Pu59aVsGXm6PYS4COsDideGIH/j/BHSLjbgdouq2vOrSWCVJ7fLw1hkK4aIGHj9bzMSfkKs4WFjbttb7hovqKP/0TSv9U6DhLGK0yOGfZqUBW/djq2ZLmT3/5pFLqdg6NuO0UH4EAr9HQURryXzogPszaIXwoEn4opTj2/l39Rhv/t3+Y9EPzzgv7pseoF0rzkiM5VfCxqY7WsIq05wgSVB6BLs3FeziaysOk+N6JqK0Qgk+sOYfeZc9vWafrcYhUxRK2uYtDOwGXtL+iLPFpXSqIJTiqZXa3z00369RHii68D4zuaMCWZp5jahcQ54BuN70peqgF2pOn1tvnRM6aN0FzMGcbKewFyjTtsLs1uAC
+  template:
+    metadata:
+      name: cloudflare-apikey
+      namespace: external-dns
