@@ -21,7 +21,7 @@ external-dns:
   regexDomainFilter: ""
   regexDomainExclusion: ""
 
-  dryRun: true
+  dryRun: false
 
   policy: sync
 
