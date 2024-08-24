@@ -4,6 +4,7 @@ external-dns:
     - service
     - ingress
 
+  publishHostIP: true
   provider: cloudflare
 
   validation:
