@@ -22,50 +22,6 @@ external-dns:
   regexDomainExclusion: ""
 
   dryRun: false
-
-  policy: sync
-
-  crd:
-    create: false
-
-  service:
-    enabled: true
-
-  serviceAccount:
-    create: true
-
-  rbac:
-    create: true
-
-  pdb:
-    create: true
-
-  metrics:
-    enabled: false
-external-dns:
-  sources:
-    # - crd
-    - service
-    - ingress
-
-  provider: cloudflare
-
-  validation:
-    enabled: true
-
-  cloudflare:
-    secretName: "cloudflare-api-token"
-    proxied: true
-
-  domainFilters: []
-
-  excludeDomains:
-    - 'internal.sealeo.io'
-
-  regexDomainFilter: ""
-  regexDomainExclusion: ""
-
-  dryRun: false
   policy: sync
 
   crd:
