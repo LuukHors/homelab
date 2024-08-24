@@ -10,7 +10,7 @@ external-dns:
     enabled: true
 
   cloudflare:
-    secretName: "cloudflare-apikey"
+    secretName: "cloudflare-api-token"
     proxied: true
 
   domainFilters: []
@@ -23,7 +23,7 @@ external-dns:
 
   dryRun: true
 
-  policy: upsert-only
+  policy: sync
 
   crd:
     create: false
