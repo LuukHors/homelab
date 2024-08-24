@@ -22,7 +22,6 @@ external-dns:
   regexDomainExclusion: ""
 
   dryRun: false
-
   policy: sync
 
   crd:
