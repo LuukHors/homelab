@@ -11,4 +11,3 @@ homelab:
       deploy: true
     external-dns:
       deploy: true
-      targetRevision: 'fix-externaldns'
