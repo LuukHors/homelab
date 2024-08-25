@@ -3,7 +3,6 @@ homelab:
   products:
     argocd:
       deploy: true
-      targetRevision: 'cert-manager'
     metallb:
       deploy: true
     ingress-nginx:
@@ -14,4 +13,3 @@ homelab:
       deploy: true
     cert-manager:
       deploy: true
-      targetRevision: 'cert-manager'
