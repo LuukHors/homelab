@@ -11,4 +11,6 @@ homelab:
       deploy: true
     external-dns:
       deploy: true
+    cert-manager:
+      deploy: true
       targetRevision: 'add-cert-manager'
