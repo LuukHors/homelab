@@ -13,4 +13,3 @@ homelab:
       deploy: true
     cert-manager:
       deploy: true
-      targetRevision: 'add-cert-manager'
