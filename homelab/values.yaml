@@ -13,3 +13,6 @@ homelab:
       deploy: true
     cert-manager:
       deploy: true
+    pihole:
+      deploy: true
+      targetRevision: 'add-pihole'
