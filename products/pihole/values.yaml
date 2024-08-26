@@ -3,7 +3,7 @@ pihole:
 
   serviceDns:
     mixedService: false
-    type: NodePort
+    type: LoadBalancer
     port: 53
 
   serviceWeb:
