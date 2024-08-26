@@ -28,6 +28,10 @@ pihole:
     path: /
     hosts:
       - pihole.internal.sealeo.io
+    tls:
+      - hosts:
+          - pihole.internal.sealeo.io
+        secretName: pihole-web-tls
 
   admin:
     enabled: true
