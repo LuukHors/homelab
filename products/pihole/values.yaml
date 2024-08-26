@@ -1,0 +1,38 @@
+pihole:
+  replicaCount: 1
+
+  serviceDns:
+    mixedService: false
+    type: NodePort
+    port: 53
+
+  serviceWeb:
+    http:
+      enabled: false
+
+    https:
+      enabled: true
+      port: 443
+
+    type: ClusterIP
+
+  virtualHost: pi.hole
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations: 
+      cert-manager.io/cluster-issuer: "letsencrypt-dns"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    path: /
+    hosts:
+      - pihole.internal.sealeo.io
+
+  admin:
+    enabled: true
+    existingSecret: "pihole-admin-password"
+    passwordKey: "admin-password"
+
+  DNS1: "9.9.9.9"
+  DNS2: "1.1.1.1"

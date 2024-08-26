@@ -391,3 +391,4 @@ $RECYCLE.BIN/
 
 talos/*
 **/cloudflare-apitoken.yaml
+**/*-secret.yaml
