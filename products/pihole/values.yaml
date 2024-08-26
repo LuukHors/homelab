@@ -16,7 +16,7 @@ pihole:
 
     type: ClusterIP
 
-  virtualHost: pi.hole
+  virtualHost: pihole.internal.sealeo.io
 
   ingress:
     enabled: true
