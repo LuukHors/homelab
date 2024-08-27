@@ -13,9 +13,8 @@ homelab:
       deploy: true
     private-external-dns:
       deploy: true
-      target-revision: 'add-private-external-dns'
+      targetRevision: 'add-private-external-dns'
     cert-manager:
       deploy: true
     pihole:
       deploy: true
-      targetRevision: 'add-pihole'
