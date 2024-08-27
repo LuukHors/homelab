@@ -13,7 +13,7 @@ external-dns:
     enabled: true
 
   pihole:
-    server: "pihole-web.pihole"
+    server: "http://pihole-web.pihole"
     tlsSkipVerify: ""
     secretName: "pihole-admin-secret"
 
