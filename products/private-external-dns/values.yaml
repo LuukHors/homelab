@@ -4,7 +4,7 @@ external-dns:
     - service
     - ingress
 
-  provider: cloudflare
+  provider: pihole
 
   extraArgs:
     target-net-filter: 192.168.0.0/16
