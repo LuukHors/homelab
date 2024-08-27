@@ -1,0 +1,47 @@
+external-dns:
+  sources:
+    # - crd
+    - service
+    - ingress
+
+  provider: cloudflare
+
+  extraArgs:
+    target-net-filter: 192.168.0.0/16
+
+  validation:
+    enabled: true
+
+  pihole:
+    server: "pihole-web.pihole"
+    tlsSkipVerify: ""
+    secretName: "pihole-admin-secret"
+
+  domainFilters:
+    - 'internal.sealeo.io'
+
+  excludeDomains: []
+
+  regexDomainFilter: ""
+  regexDomainExclusion: ""
+
+  dryRun: false
+  policy: sync
+
+  crd:
+    create: false
+
+  service:
+    enabled: true
+
+  serviceAccount:
+    create: true
+
+  rbac:
+    create: true
+
+  pdb:
+    create: true
+
+  metrics:
+    enabled: false
