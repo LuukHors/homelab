@@ -18,4 +18,3 @@ homelab:
       deploy: true
     pihole:
       deploy: true
-      targetRevision: 'add-pihole'
