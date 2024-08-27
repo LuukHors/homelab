@@ -3,12 +3,12 @@ pihole:
 
   serviceDns:
     mixedService: false
-    type: NodePort
+    type: LoadBalancer
     port: 53
 
   serviceWeb:
     http:
-      enabled: false
+      enabled: true
 
     https:
       enabled: true
@@ -16,7 +16,7 @@ pihole:
 
     type: ClusterIP
 
-  virtualHost: pi.hole
+  virtualHost: pihole.internal.sealeo.io
 
   ingress:
     enabled: true
@@ -24,10 +24,14 @@ pihole:
     annotations: 
       cert-manager.io/cluster-issuer: "letsencrypt-dns"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     path: /
     hosts:
       - pihole.internal.sealeo.io
+    tls:
+      - hosts:
+          - pihole.internal.sealeo.io
+        secretName: pihole-web-tls
 
   admin:
     enabled: true
