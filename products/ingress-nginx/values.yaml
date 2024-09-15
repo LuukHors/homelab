@@ -16,7 +16,7 @@ ingress-nginx:
 
     service:
       externalIPs:
-        - 84.106.173.75
+        - 84.106.163.25
 
     kind: DaemonSet
     minAvailable: 1
