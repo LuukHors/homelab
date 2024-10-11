@@ -17,3 +17,5 @@ homelab:
       deploy: true
     pihole:
       deploy: true
+    cloudnative-postgres:
+      deploy: true
