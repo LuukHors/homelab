@@ -19,3 +19,5 @@ homelab:
       deploy: true
     cloudnative-postgres:
       deploy: true
+    authentik:
+      deploy: true
