@@ -1,0 +1,40 @@
+longhorn:
+  persistence:
+    defaultClass: true
+    defaultClassReplicaCount: 1
+    defaultDataLocality: best-effort
+    defaultReplicaAutoBalance: best-effort
+    defaultDiskSelector:
+      enable: true
+      selector: "nvme"
+
+  csi:
+    attacherReplicaCount: 1
+    provisionerReplicaCount: 1
+    resizerReplicaCount: 1
+    snapshotterReplicaCount: 1
+
+  defaultSettings:
+    defaultReplicaCount: 1
+    defaultLonghornStaticStorageClass: longhorn
+    defaultDataLocality: best-effort
+    storageOverProvisioningPercentage: 100
+    storageMinimalAvailablePercentage: 20
+    upgradeChecker: false
+    failedBackupTTL: 60
+    logLevel: Warn
+    backupCompressionMethod: lz4
+    v2DataEngine: false
+    backupConcurrentLimit: 5
+    restoreConcurrentLimit: 5
+
+  longhornUI:
+    replicas: 1
+
+  ingress:
+    enabled: true
+    host: longhorn.internal.sealeo.io
+    tls: true
+    tlsSecret: longhorn-tls
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-dns
