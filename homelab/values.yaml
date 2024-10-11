@@ -21,3 +21,5 @@ homelab:
       deploy: true
     authentik:
       deploy: true
+    longhorn:
+      deploy: true
