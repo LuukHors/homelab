@@ -32,6 +32,8 @@ spec:
   {{- end}}
   revisionHistoryLimit: 1
   syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
