@@ -1,0 +1,55 @@
+database:
+  clusterName: authentik-postgres
+  replicas: 1
+  size: 16Gi
+
+authentik:
+  global:
+    revisionHistoryLimit: 0
+    env:
+      - name: AUTHENTIK_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            key: secretKey
+            name: authentik-secret
+      - name: AUTHENTIK_POSTGRESQL__PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: databasePassword
+            name: authentik-secret
+
+  worker:
+    replicas: 1
+
+  server:
+    replicas: 1
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-dns
+      hosts:
+        - auth.internal.sealeo.io
+      tls:
+        - secretName: authentik-tls
+          hosts:
+            - auth.internal.sealeo.io
+
+  authentik:
+    log_level: warning
+    postgresql:
+      host: "authentik-postgres-rw"
+      name: "app"
+      user: "app"
+      port: 5432
+    redis:
+      host: "{{ .Release.Name }}-redis-master"
+
+  redis:
+    enabled: true
+    architecture: standalone
+    auth:
+      enabled: false
+    master:
+      revisionHistoryLimit: 0
+      persistence:
+        size: 16Gi
