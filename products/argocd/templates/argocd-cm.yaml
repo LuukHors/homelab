@@ -10,13 +10,13 @@ data:
   url: https://argo.sealeo.io
   admin.enabled: "true"
   timeout.reconciliation: 180s
-  cluster.inClusterEnabled: "true"
+  cluster.inClusterEnabled: "false"
 
   oidc.tls.insecure.skip.verify: "false"
   oidc.config: |
     name: Authentik
-    issuer: http://authentik-server.authentik.svc.cluster.local/application/o/argo/
+    issuer: https://auth.internal.sealeo.io/application/o/argo/
     clientID: gSSa5CRgsI1830mcpfTBietHEz6PrbvOYPWADpih
     clientSecret: $authentik-credentials:clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
-    logoutURL: http://authentik-server.authentik.svc.cluster.local/application/o/argo/end-session/
+    logoutURL: https://auth.internal.sealeo.io/application/o/argo/end-session/
