@@ -28,10 +28,12 @@ authentik:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-dns
       hosts:
+        - auth.sealeo.io
         - auth.internal.sealeo.io
       tls:
         - secretName: authentik-tls
           hosts:
+            - auth.sealeo.io
             - auth.internal.sealeo.io
 
   authentik:
