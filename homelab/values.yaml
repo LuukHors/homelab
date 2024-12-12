@@ -3,7 +3,6 @@ homelab:
   products:
     argocd:
       deploy: true
-      targetRevision: "add-argocd-rbac"
     metallb:
       deploy: true
     ingress-nginx:
