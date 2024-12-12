@@ -7,7 +7,7 @@ argo-cd:
   
   configs:
     cm:
-      create: true
+      create: false
       exec.enabled: true
 
   controller:
