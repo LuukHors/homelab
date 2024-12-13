@@ -23,3 +23,5 @@ homelab:
       deploy: true
     longhorn:
       deploy: true
+    sealeo-temp:
+      deploy: true
