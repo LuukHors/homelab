@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sealeo-deployment
+  namespace: sealeo
+  labels:
+    app: sealeo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sealeo
+  template:
+    metadata:
+      labels:
+        app: sealeo
+    spec:
+      containers:
+      - name: sealeo
+        image: luckyluukius/sealeo:latest
+        env:
+        - name: TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: sealeo-secret
+              key: TOKEN
+        - name: TENOR_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: sealeo-secret
+              key: TENOR_API_KEY
+        - name: ATLASMONGODBUSERNAME
+          valueFrom:
+            secretKeyRef:
+              name: sealeo-secret
+              key: ATLASMONGODBUSERNAME
+        - name: ATLASMONGODBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sealeo-secret
+              key: ATLASMONGODBPASSWORD
+        - name: NODE_ENV
+          value: 'production'
+        
