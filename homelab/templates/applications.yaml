@@ -17,10 +17,10 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ $productName }}
-  {{- with $productInfo.ignoreDifferences }}
-    ignoreDifferences:
-      {{- toYaml . | nindent 6 }}
-  {{- end}}
+{{- with $productInfo.ignoreDifferences }}
+  ignoreDifferences:
+    {{- toYaml . | nindent 4 }}
+{{- end}}
   revisionHistoryLimit: 1
   syncPolicy:
     syncOptions:
