@@ -50,4 +50,4 @@ harbor:
       username: "app"
       password: "app"
       coreDatabase: "registry"
-      existingSecret: "harbor-databse-password"
+      existingSecret: "harbor-postgres-app"
