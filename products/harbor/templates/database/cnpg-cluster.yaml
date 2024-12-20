@@ -1,0 +1,12 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ .Values.harborDatabase.clusterName }}
+spec:
+  instances: {{ .Values.harborDatabase.replicas }}
+  storage:
+    size: {{ .Values.harborDatabase.size }}
+  bootstrap:
+    initdb:
+      database: registry
+      owner: app
