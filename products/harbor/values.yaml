@@ -7,7 +7,7 @@ harbor:
   expose:
     type: ingress
     tls:
-      enabled: false
+      enabled: true
       certSource: secret
       secret:
         secretName: "harbor-tls"
