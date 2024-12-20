@@ -38,4 +38,10 @@ homelab:
       deploy: true
     harbor:
       deploy: true
+      ignoreDifferences:
+      - group: "apps"
+        kind: "StatefulSet"
+        jqPathExpressions:
+          - ".spec.volumeClaimTemplates[].apiVersion"
+          - ".spec.volumeClaimTemplates[].kind"
       targetRevision: "add-harbor"
