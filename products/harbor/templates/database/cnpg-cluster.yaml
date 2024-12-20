@@ -6,3 +6,7 @@ spec:
   instances: {{ .Values.harborDatabase.replicas }}
   storage:
     size: {{ .Values.harborDatabase.size }}
+  bootstrap:
+    initdb:
+      database: registry
+      owner: app
