@@ -1,0 +1,52 @@
+harborDatabase:
+  replicas: 1
+  clusterName: harbor-postgres
+  size: 2Gi
+
+expose:
+  type: ingress
+  tls:
+    enabled: true
+    certSource: secret
+    secret:
+      secretName: "harbor-tls"
+  ingress:
+    hosts:
+      core: harbor.internal.sealeo.io
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-dns
+      ingress.kubernetes.io/ssl-redirect: "true"
+
+externalURL: https://harbor.internal.sealeo.io
+
+persistence:
+  enabled: true
+  resourcePolicy: "keep"
+  persistentVolumeClaim:
+    registry:
+      size: 5Gi
+    jobservice:
+      jobLog:
+        size: 1Gi
+    redis:
+      size: 1Gi
+      annotations: {}
+    trivy:
+      size: 5Gi
+  imageChartStorage:
+    type: filesystem
+    filesystem:
+      rootdirectory: /storage
+
+existingSecretAdminPassword: harbor-admin-password
+existingSecretAdminPasswordKey: HARBOR_ADMIN_PASSWORD
+
+database:
+  type: external
+  external:
+    host: "harbor-postgres-rw"
+    port: "5432"
+    username: "app"
+    password: "app"
+    coreDatabase: "registry"
+    existingSecret: "harbor-databse-password"
