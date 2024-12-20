@@ -18,7 +18,8 @@ spec:
     server: https://kubernetes.default.svc
     namespace: {{ $productName }}
   {{- with $productInfo.ignoreDifferences }}
-    {{ . }}
+    ignoreDifferences:
+      {{- toYaml . | nindent 6 }}
   {{- end}}
   revisionHistoryLimit: 1
   syncPolicy:
