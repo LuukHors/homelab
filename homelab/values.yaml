@@ -44,4 +44,3 @@ homelab:
         jqPathExpressions:
           - ".spec.volumeClaimTemplates[].apiVersion"
           - ".spec.volumeClaimTemplates[].kind"
-      targetRevision: "add-harbor"
