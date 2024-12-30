@@ -37,7 +37,7 @@ homelab:
     sealeo-temp:
       deploy: true
     harbor:
-      deploy: true
+      deploy: false
       ignoreDifferences:
       - group: "apps"
         kind: "StatefulSet"
