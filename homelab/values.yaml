@@ -4,7 +4,7 @@ homelab:
     argocd:
       deploy: true
     metallb:
-      deploy: true
+      deploy: false
       ignoreDifferences:
         - group: "apiextensions.k8s.io"
           kind: CustomResourceDefinition
