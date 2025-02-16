@@ -1,10 +1,10 @@
 homelab:
-  deploy: false
+  deploy: true
   products:
     argocd:
       deploy: true
     metallb:
-      deploy: true
+      deploy: false
       ignoreDifferences:
         - group: "apiextensions.k8s.io"
           kind: CustomResourceDefinition
@@ -31,9 +31,9 @@ homelab:
     cloudnative-postgres:
       deploy: true
     authentik:
-      deploy: true
+      deploy: false
     longhorn:
-      deploy: true
+      deploy: false
     sealeo-temp:
       deploy: true
     harbor:
