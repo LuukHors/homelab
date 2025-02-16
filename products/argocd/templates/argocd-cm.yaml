@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
 data:
   url: https://argo.internal.sealeo.io
-  admin.enabled: "false"
+  admin.enabled: "true"
   timeout.reconciliation: 180s
   cluster.inClusterEnabled: "false"
 
