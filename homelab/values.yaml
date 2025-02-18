@@ -44,3 +44,5 @@ homelab:
         jqPathExpressions:
           - ".spec.volumeClaimTemplates[].apiVersion"
           - ".spec.volumeClaimTemplates[].kind"
+    cilium:
+      deploy: true
