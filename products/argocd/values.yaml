@@ -31,7 +31,7 @@ argo-cd:
       enabled: false
 
   server:
-    replicas: 2
+    replicas: 1
     resources:
       limits:
         memory: 512Mi
@@ -52,7 +52,7 @@ argo-cd:
           path: /
 
   repoServer:
-    replicas: 2
+    replicas: 1
     resources:
       limits:
         memory: 1024Mi
