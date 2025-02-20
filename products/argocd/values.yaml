@@ -11,7 +11,7 @@ argo-cd:
       exec.enabled: true
 
   controller:
-    replicas: 1
+    replicas: 2
     resources:
       limits:
         memory: 2048Mi
@@ -31,14 +31,14 @@ argo-cd:
       enabled: false
 
   server:
-    replicas: 1
+    replicas: 2
     resources:
       limits:
         memory: 512Mi
       requests:
         cpu: 70m
         memory: 128Mi
-  
+
     ingress:
       enabled: true
       annotations:
@@ -52,7 +52,7 @@ argo-cd:
           path: /
 
   repoServer:
-    replicas: 1
+    replicas: 2
     resources:
       limits:
         memory: 1024Mi
