@@ -9,6 +9,9 @@ argo-cd:
     cm:
       create: false
       exec.enabled: true
+    rbac:
+      create: false
+
 
   controller:
     replicas: 1
