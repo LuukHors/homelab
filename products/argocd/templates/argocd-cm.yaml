@@ -18,6 +18,15 @@ data:
         - CiliumIdentity
       clusters:
         - "*"
+  cluster.inClusterEnabled: "true"
+
+  resource.exclusions: |
+    - apiGroups:
+        - cilium.io
+      kinds:
+        - CiliumIdentity
+      clusters:
+        - "*"
 
   oidc.tls.insecure.skip.verify: "false"
   oidc.config: |

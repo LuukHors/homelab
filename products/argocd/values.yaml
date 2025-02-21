@@ -9,6 +9,8 @@ argo-cd:
     cm:
       create: false
       exec.enabled: true
+    secret:
+      createSecret: true
     rbac:
       create: false
 
@@ -20,7 +22,15 @@ argo-cd:
       requests:
         cpu: 130m
         memory: 512Mi
-  
+
+    metrics:
+      enabled: false
+      serviceMonitor:
+        enabled: false
+
+  dex:
+    enabled: false
+
   redis:
     enabled: true
     resources:
@@ -40,7 +50,7 @@ argo-cd:
       requests:
         cpu: 70m
         memory: 128Mi
-
+  
     ingress:
       enabled: true
       annotations:
@@ -53,6 +63,10 @@ argo-cd:
         - name: argo.internal.sealeo.io
           path: /
 
+    configEnabled: false
+
+    rbacConfigCreate: false
+
   repoServer:
     replicas: 1
     resources:
@@ -61,7 +75,12 @@ argo-cd:
       requests:
         cpu: 50m
         memory: 256Mi
-        
+
+    metrics:
+      enabled: false
+      serviceMonitor:
+        enabled: false
+
   applicationSet:
     replicas: 0
     serviceAccount:
