@@ -2,7 +2,7 @@ homelab:
   deploy: true
   products:
     argocd:
-      deploy: true
+      deploy: false
     metallb:
       deploy: false
       ignoreDifferences:
@@ -17,25 +17,25 @@ homelab:
           jsonPointers:
             - /spec/conversion/webhook/clientConfig/caBundle
     ingress-nginx:
-      deploy: true
+      deploy: false
     sealed-secrets:
       deploy: true
     external-dns:
-      deploy: true
+      deploy: false
     private-external-dns:
-      deploy: true
+      deploy: false
     cert-manager:
-      deploy: true
+      deploy: false
     pihole:
-      deploy: true
+      deploy: false
     cloudnative-postgres:
-      deploy: true
+      deploy: false
     authentik:
       deploy: false
     longhorn:
       deploy: false
     sealeo-temp:
-      deploy: true
+      deploy: false
     harbor:
       deploy: false
       ignoreDifferences:
@@ -45,4 +45,4 @@ homelab:
           - ".spec.volumeClaimTemplates[].apiVersion"
           - ".spec.volumeClaimTemplates[].kind"
     cilium:
-      deploy: true
+      deploy: false
