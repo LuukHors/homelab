@@ -17,7 +17,7 @@ homelab:
           jsonPointers:
             - /spec/conversion/webhook/clientConfig/caBundle
     ingress-nginx:
-      deploy: false
+      deploy: true
     sealed-secrets:
       deploy: true
     external-dns:
