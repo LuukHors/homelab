@@ -23,11 +23,11 @@ homelab:
     external-dns:
       deploy: false
     private-external-dns:
-      deploy: true
+      deploy: false
     cert-manager:
       deploy: true
     pihole:
-      deploy: true
+      deploy: false
     cloudnative-postgres:
       deploy: true
     authentik:
