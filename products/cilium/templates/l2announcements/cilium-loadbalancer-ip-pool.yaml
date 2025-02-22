@@ -4,4 +4,4 @@ metadata:
   name: homepool
 spec:
   blocks:
-  - cidr: "100.100.0.0/24"
+  - cidr: "192.168.178.240/30"
