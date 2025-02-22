@@ -7,7 +7,7 @@ external-dns:
   provider: pihole
 
   extraArgs:
-    target-net-filter: 192.168.178.0/24
+    target-net-filter: 100.100.80.0/24
 
   validation:
     enabled: true
