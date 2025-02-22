@@ -45,4 +45,4 @@ homelab:
           - ".spec.volumeClaimTemplates[].apiVersion"
           - ".spec.volumeClaimTemplates[].kind"
     cilium:
-      deploy: false
+      deploy: true
