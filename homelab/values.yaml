@@ -27,7 +27,7 @@ homelab:
     cert-manager:
       deploy: true
     pihole:
-      deploy: false
+      deploy: true
     cloudnative-postgres:
       deploy: true
     authentik:
