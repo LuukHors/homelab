@@ -1,0 +1,17 @@
+machine:
+  type: controlplane
+  
+  network:
+    interfaces:
+      - interface: eth0
+        dhcp: true
+        vip:
+          ip: 192.168.178.166
+    hostname: laptop-control-plane-1
+
+  nodeLabels:
+    topology.kubernetes.io/zone: ""
+    topology.kubernetes.io/region: ""
+
+  install:
+    disk: /dev/nvme0n1

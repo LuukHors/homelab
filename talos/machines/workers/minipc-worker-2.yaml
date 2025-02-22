@@ -1,0 +1,12 @@
+machine:
+  type: worker
+
+  network:
+    hostname: minipc-worker-2
+      
+  nodeLabels:
+    topology.kubernetes.io/zone: ""
+    topology.kubernetes.io/region: ""
+
+  install:
+    disk: /dev/sdb

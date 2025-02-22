@@ -1,0 +1,17 @@
+machine:
+  type: controlplane
+
+  network:
+    interfaces:
+      - interface: eth0
+        dhcp: true
+        vip:
+          ip: 192.168.178.166
+    hostname: minipc-control-plane-2
+
+  nodeLabels:
+    topology.kubernetes.io/zone: ""
+    topology.kubernetes.io/region: ""
+
+  install:
+    disk: /dev/sdb

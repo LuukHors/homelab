@@ -1,0 +1,19 @@
+machine:
+  certSANs:
+    - 192.168.178.160
+    - 192.168.178.161
+    - 192.168.178.162
+    - 192.168.178.163
+    - 192.168.178.164
+    - 192.168.178.165
+  features:
+    hostDNS:
+      enabled: false
+      forwardKubeDNSToHost: false
+    kubePrism:
+      enabled: true
+      port: 7445
+  network:
+    nameservers:
+      - 1.1.1.1
+      - 9.9.9.9
