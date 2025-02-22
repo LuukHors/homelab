@@ -3,10 +3,11 @@ machine:
 
   network:
     interfaces:
-      - interface: eth0
-        dhcp: true
-        vip:
-          ip: 192.168.178.166
+    - deviceSelector:
+        physical: true
+      dhcp: true
+      vip:
+        ip: 192.168.178.166
     hostname: minipc-control-plane-3
 
   nodeLabels:

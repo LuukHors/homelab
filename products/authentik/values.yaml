@@ -15,8 +15,8 @@ authentik:
       - name: AUTHENTIK_POSTGRESQL__PASSWORD
         valueFrom:
           secretKeyRef:
-            key: databasePassword
-            name: authentik-secret
+            key: password
+            name: authentik-postgres-app
 
   worker:
     replicas: 1

@@ -6,6 +6,8 @@ machine:
     - 192.168.178.163
     - 192.168.178.164
     - 192.168.178.165
+    - 192.168.178.166 # Virtual ip
+    - cluster.sealeo.io # Domain name
   features:
     hostDNS:
       enabled: false

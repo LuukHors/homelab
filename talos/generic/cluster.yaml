@@ -1,4 +1,6 @@
 cluster:
+  controlPlane:
+    endpoint: https://192.168.178.166:6443
   clusterName: lhhl
   allowSchedulingOnControlPlanes: false
 
