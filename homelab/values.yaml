@@ -33,7 +33,7 @@ homelab:
     authentik:
       deploy: false
     longhorn:
-      deploy: false
+      deploy: true
     sealeo-temp:
       deploy: true
     harbor:
