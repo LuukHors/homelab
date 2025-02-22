@@ -7,7 +7,7 @@ external-dns:
   provider: cloudflare
 
   extraArgs:
-    exclude-target-net: 100.100.80.0/24
+    exclude-target-net: 192.168.178.245/24
 
   validation:
     enabled: true
