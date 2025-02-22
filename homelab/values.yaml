@@ -29,7 +29,7 @@ homelab:
     pihole:
       deploy: false
     cloudnative-postgres:
-      deploy: false
+      deploy: true
     authentik:
       deploy: false
     longhorn:
