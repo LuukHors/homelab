@@ -2,7 +2,7 @@ homelab:
   deploy: true
   products:
     argocd:
-      deploy: false
+      deploy: true
     metallb:
       deploy: false
       ignoreDifferences:
