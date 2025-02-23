@@ -22,7 +22,7 @@ homelab:
     sealed-secrets:
       deploy: true
     external-dns:
-      deploy: false
+      deploy: true
     private-external-dns:
       deploy: true
     cert-manager:
