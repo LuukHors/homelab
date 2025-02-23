@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-  admin.enabled: "true"
+  admin.enabled: "false"
   timeout.reconciliation: 180s
   cluster.inClusterEnabled: "true"
 
