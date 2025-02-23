@@ -15,6 +15,8 @@ kube-prometheus-stack:
       enabled: true
       hosts:
         - alertmanager.internal.sealeo.io
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-dns"
       tls:
         - secretName: alertmanager-general-tls
           hosts: 
@@ -83,6 +85,8 @@ kube-prometheus-stack:
       enabled: true
       hosts:
       - grafana.internal.sealeo.io
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-dns"
       tls:
       - secretName: grafana-general-tls
         hosts:
@@ -129,6 +133,8 @@ kube-prometheus-stack:
       enabled: true
       hosts:
        - prometheus.internal.sealeo.io
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-dns"
       tls:
         - secretName: prometheus-general-tls
           hosts:
