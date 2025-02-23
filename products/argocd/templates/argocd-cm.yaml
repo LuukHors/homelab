@@ -34,7 +34,7 @@ data:
   oidc.config: |
     name: Authentik
     issuer: https://auth.internal.sealeo.io/application/o/argocd/
-    clientID: hmIT3AABkCQtcfkcHwijr3HiMDxd7uZw2eNBAAov
+    clientID: FPs1rDh75YjdD1QBfCF3EjpXMVbdBWAw5ImEQl6V
     clientSecret: $authentik-credentials:clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
     logoutURL: https://auth.internal.sealeo.io/application/o/argocd/end-session/
