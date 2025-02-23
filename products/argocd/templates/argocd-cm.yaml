@@ -28,8 +28,6 @@ data:
         - "*"
 
   url: https://argo.internal.sealeo.io
-  additionalUrls: |
-    - https://argo.sealeo.io
   oidc.tls.insecure.skip.verify: "false"
   oidc.config: |
     name: Authentik
