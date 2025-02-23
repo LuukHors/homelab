@@ -47,3 +47,5 @@ homelab:
           - ".spec.volumeClaimTemplates[].kind"
     cilium:
       deploy: true
+    prometheus-crd:
+      deploy: true
