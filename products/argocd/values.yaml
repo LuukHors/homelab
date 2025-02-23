@@ -3,7 +3,7 @@ argo-cd:
     revisionHistoryLimit: 0
     logging:
       format: json
-      level: debug
+      level: info
   
   configs:
     cm:
@@ -18,7 +18,7 @@ argo-cd:
     replicas: 1
     resources:
       limits:
-        memory: 2048Mi
+        memory: 1024Mi
       requests:
         cpu: 130m
         memory: 512Mi
@@ -43,7 +43,7 @@ argo-cd:
       enabled: false
 
   server:
-    replicas: 1
+    replicas: 2
     resources:
       limits:
         memory: 512Mi
@@ -68,10 +68,10 @@ argo-cd:
     rbacConfigCreate: false
 
   repoServer:
-    replicas: 1
+    replicas: 2
     resources:
       limits:
-        memory: 1024Mi
+        memory: 512Mi
       requests:
         cpu: 50m
         memory: 256Mi
