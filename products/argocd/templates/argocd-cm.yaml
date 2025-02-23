@@ -18,7 +18,6 @@ data:
         - CiliumIdentity
       clusters:
         - "*"
-  cluster.inClusterEnabled: "true"
 
   resource.exclusions: |
     - apiGroups:
@@ -32,7 +31,7 @@ data:
   oidc.config: |
     name: Authentik
     issuer: https://auth.internal.sealeo.io/application/o/argocd/
-    clientID: LN03nETlGuUWWCMVdmoTTZUeZIHepi6z6DF3n7UC
+    clientID: hmIT3AABkCQtcfkcHwijr3HiMDxd7uZw2eNBAAov
     clientSecret: $authentik-credentials:clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
     logoutURL: https://auth.internal.sealeo.io/application/o/argocd/end-session/
