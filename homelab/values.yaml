@@ -49,3 +49,5 @@ homelab:
       deploy: true
     prometheus-crd:
       deploy: true
+    prometheus:
+      deploy: true

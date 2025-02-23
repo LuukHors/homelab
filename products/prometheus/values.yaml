@@ -1,0 +1,135 @@
+kube-prometheus-stack:
+  nameOverride: "prometheus"
+
+  crds:
+    enabled: false
+
+  defaultRules:
+    rules:
+      windows: false
+
+  alertmanager:
+    enabled: true
+    externalUrl: https://alertmanager.internal.sealeo.io
+    ingress:
+      enabled: true
+      hosts:
+        - alertmanager.internal.sealeo.io
+      tls:
+        - secretName: alertmanager-general-tls
+          hosts: 
+            - alertmanager.internal.sealeo.io
+    alertmanagerSpec:
+      replicas: 1
+      retention: 120h
+      storage:
+       volumeClaimTemplate:
+         spec:
+           accessModes: ["ReadWriteOnce"]
+           resources:
+             requests:
+               storage: 2Gi
+
+  grafana:
+    enabled: true
+    admin:
+      existingSecret: grafana-oauth-secret
+      userKey: admin-user
+      passwordKey: admin-password
+
+    extraSecretMounts:
+      - name: auth-generic-oauth-secret-mount
+        secretName: grafana-oauth-secret
+        defaultMode: 0440
+        mountPath: /etc/secrets/auth_generic_oauth
+        readOnly: true
+
+    grafana.ini:
+      auth:
+        signout_redirect_url: https://auth.internal.sealeo.io/application/o/grafana/end-session/
+      auth.generic_oauth:
+        enabled: true
+        name: Authentik
+        scopes: "openid email profile"
+        auth_url: "https://auth.internal.sealeo.io/application/o/authorize/"
+        token_url: "https://auth.internal.sealeo.io/application/o/token/"
+        api_url: "https://auth.internal.sealeo.io/application/o/userinfo/"
+        client_id: $__file{/etc/secrets/auth_generic_oauth/clientId}
+        client_secret: $__file{/etc/secrets/auth_generic_oauth/clientSecret}
+        allow_assign_grafana_admin: true
+        role_attribute_path: contains(groups[*], 'Admins') && 'Admin' || contains(groups[*], 'Contributor') && 'Editor' || 'Viewer'
+      paths:
+        data: /var/lib/grafana
+        logs: /var/log/grafana
+        plugins: /var/lib/grafana/plugins
+        provisioning: /etc/grafana/provisioning
+      analytics:
+        enabled: false
+        reporting_enabled: false
+        check_for_updates: false
+        check_for_plugin_updates: false
+        feedback_links_enabled: false
+      log:
+        mode: console
+        level: info
+      grafana_net:
+        url: https://grafana.net
+      server:
+        enable_gzip: true
+        domain: "https://grafana.internal.sealeo.io"
+        root_url: "https://grafana.internal.sealeo.io"
+
+    ingress:
+      enabled: true
+      hosts:
+      - grafana.internal.sealeo.io
+      tls:
+      - secretName: grafana-general-tls
+        hosts:
+        - grafana.internal.sealeo.io
+
+    persistence:
+      enabled: false
+
+  kube-state-metrics:
+    revisionHistoryLimit: 0
+    selfMonitor:
+      enabled: true
+
+  prometheus-node-exporter:
+    revisionHistoryLimit: 0
+    namespaceOverride: "prometheus-node-exporter"
+
+  prometheusOperator:
+    revisionHistoryLimit: 0
+    logLevel: info
+    admissionWebhooks:
+      patch:
+        ttlSecondsAfterFinished: 15
+
+  prometheus:
+    enabled: true
+
+    prometheusSpec:
+      probeSelectorNilUsesHelmValues: false
+      ruleSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      scrapeConfigSelectorNilUsesHelmValues: false
+      replicas: 2
+      
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            resources:
+              requests:
+                storage: 50Gi
+
+    ingress:
+      enabled: true
+      hosts:
+       - prometheus.internal.sealeo.io
+      tls:
+        - secretName: prometheus-general-tls
+          hosts:
+            - prometheus.internal.sealeo.io
