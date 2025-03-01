@@ -59,7 +59,7 @@ kube-prometheus-stack:
         client_id: $__file{/etc/secrets/auth_generic_oauth/clientId}
         client_secret: $__file{/etc/secrets/auth_generic_oauth/clientSecret}
         allow_assign_grafana_admin: true
-        role_attribute_path: contains(groups[*], 'Admins') && 'Admin' || contains(groups[*], 'Contributor') && 'Editor' || 'Viewer'
+        role_attribute_path: contains(groups[*], 'lhhl-grafana-admin-users') && 'Admin' || contains(groups[*], 'Contributor') && 'Editor' || 'Viewer'
       paths:
         data: /var/lib/grafana
         logs: /var/log/grafana
