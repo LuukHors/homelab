@@ -38,8 +38,8 @@ pihole:
     existingSecret: "pihole-admin-password"
     passwordKey: "admin-password"
 
-    extraEnvVars:
-      FTLCONF_dns_listeningMode: 'all'
+  extraEnvVars:
+    FTLCONF_dns_listeningMode: 'all'
 
   DNS1: "9.9.9.9"
   DNS2: "1.1.1.1"
