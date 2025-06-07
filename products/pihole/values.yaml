@@ -1,6 +1,9 @@
 pihole:
   replicaCount: 1
 
+  extraEnvVars:
+    FTLCONF_dns_listeningMode: 'all'
+
   serviceDns:
     mixedService: false
     type: LoadBalancer
@@ -37,9 +40,6 @@ pihole:
     enabled: true
     existingSecret: "pihole-admin-password"
     passwordKey: "admin-password"
-
-  extraEnvVars:
-    FTLCONF_dns_listeningMode: 'all'
 
   DNS1: "9.9.9.9"
   DNS2: "1.1.1.1"
