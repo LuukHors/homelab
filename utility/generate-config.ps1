@@ -1,5 +1,5 @@
 $repoPath = "/home/luukh/code/homelab"
-$kubernetesVersion = "1.31.3"
+$kubernetesVersion = "1.32.2"
 
 if(-not (Get-Module powershell-yaml -ListAvailable)) {
     Install-Module powershell-yaml -Scope CurrentUser -Force
