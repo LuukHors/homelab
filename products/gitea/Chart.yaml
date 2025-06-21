@@ -5,4 +5,4 @@ version: 1.0.0
 dependencies:
   - name: gitea
     version: 12.1.0
-    repository: oci://registry-1.docker.io/giteacharts/gitea
+    repository: oci://docker.gitea.com/charts/gitea
