@@ -8,5 +8,5 @@ spec:
   storage:
     size: {{ .Values.database.size }}
   schemas:
-  - name: gitea
-    owner: app
+    - name: gitea
+      owner: app
