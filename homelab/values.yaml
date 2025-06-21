@@ -51,3 +51,5 @@ homelab:
       deploy: true
     prometheus:
       deploy: true
+    gitea:
+      deploy: true
