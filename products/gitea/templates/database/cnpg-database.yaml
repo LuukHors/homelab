@@ -6,7 +6,8 @@ spec:
   name: app
   owner: app
   schemas:
-    - name: app
+    - ensure: present
+      name: app
       owner: app
   cluster:
     name: gitea-postgres
