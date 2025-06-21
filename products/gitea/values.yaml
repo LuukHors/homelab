@@ -1,0 +1,73 @@
+database:
+  clusterName: gitea-postgres
+  replicas: 1
+  size: 16Gi
+
+gitea:
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-dns"
+    hosts:
+      - host: git.internal.sealeo.io
+    tls:
+    - secretName: gitea-tls
+      hosts:
+        - git.internal.sealeo.io
+
+  persistence:
+    enabled: true
+    create: true
+    mount: true
+    claimName: gitea-shared-storage
+    size: 10Gi
+
+  postgresql:
+    enabled: false
+
+  postgresql-ha:
+    enabled: false
+
+  gitea:
+    config:
+      database:
+        DB_TYPE: postgres
+        HOST: gitea-postgres-rw:5432
+        NAME: app
+        SCHEMA: gitea
+        
+      additionalConfigFromEnvs:
+        - name: GITEA__database__USER
+          valueFrom:
+            secretKeyRef:
+              name: gitea-postgres-app
+              key: user
+        - name: GITEA__database__PASSWD
+          valueFrom:
+            secretKeyRef:
+              name: gitea-postgres-app
+              key: password
+
+    admin:
+      existingSecret: gitea-admin-secret
+
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+
+    # Either specify inline `key` and `secret` or refer to them via `existingSecret`
+    ## @param gitea.oauth OAuth configuration
+    oauth:
+      []
+      # - name: 'OAuth 1'
+      #   provider:
+      #   key:
+      #   secret:
+      #   existingSecret:
+      #   autoDiscoverUrl:
+      #   useCustomUrls:
+      #   customAuthUrl:
+      #   customTokenUrl:
+      #   customProfileUrl:
+      #   customEmailUrl:
