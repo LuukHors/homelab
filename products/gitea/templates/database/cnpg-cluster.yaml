@@ -7,7 +7,3 @@ spec:
   instances: {{ .Values.database.replicas }}
   storage:
     size: {{ .Values.database.size }}
-  bootstrap:
-    initdb:
-      database: app
-      owner: app
