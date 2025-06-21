@@ -7,7 +7,6 @@ spec:
   instances: {{ .Values.database.replicas }}
   storage:
     size: {{ .Values.database.size }}
-  bootstrap:
-    initdb:
-      database: gitea
-      owner: app
+  schemas:
+  - name: gitea
+    owner: app
