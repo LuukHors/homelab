@@ -6,6 +6,7 @@ database:
 gitea:
   ingress:
     enabled: true
+    className: "nginx"
     annotations:
       cert-manager.io/cluster-issuer: "letsencrypt-dns"
     hosts:
