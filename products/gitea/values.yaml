@@ -36,17 +36,17 @@ gitea:
         NAME: app
         SCHEMA: gitea
         
-      additionalConfigFromEnvs:
-        - name: GITEA__database__USER
-          valueFrom:
-            secretKeyRef:
-              name: gitea-postgres-app
-              key: user
-        - name: GITEA__database__PASSWD
-          valueFrom:
-            secretKeyRef:
-              name: gitea-postgres-app
-              key: password
+    additionalConfigFromEnvs:
+      - name: GITEA__database__USER
+        valueFrom:
+          secretKeyRef:
+            name: gitea-postgres-app
+            key: user
+      - name: GITEA__database__PASSWD
+        valueFrom:
+          secretKeyRef:
+            name: gitea-postgres-app
+            key: password
 
     admin:
       existingSecret: gitea-admin-secret
