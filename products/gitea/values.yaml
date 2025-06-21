@@ -34,7 +34,7 @@ gitea:
         DB_TYPE: postgres
         HOST: gitea-postgres-rw:5432
         NAME: app
-        SCHEMA: gitea
+        SCHEMA: app
         
     additionalConfigFromEnvs:
       - name: GITEA__database__USER
