@@ -3,7 +3,8 @@ kind: Ingress
 metadata:
   namespace: tekton-pipelines
   name: tekton-dashboard
-  annotations: {{- toYaml .Values.ingress.annotations }}
+  annotations: 
+    {{ toYaml .Values.ingress.annotations }}
 spec:
   ingressClassName: {{ .Values.ingress.ingressClassName }}
   rules:
