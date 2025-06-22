@@ -20,4 +20,5 @@ spec:
               name: http
   tls:
   - hosts:
-    - {{ .Values.ingress.hostname }}
+      - {{ .Values.ingress.hostname }}
+    secretName: tekton-dashboard-tls
