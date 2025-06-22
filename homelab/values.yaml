@@ -59,3 +59,5 @@ homelab:
         jqPathExpressions:
           - ".spec.volumeClaimTemplates[].apiVersion"
           - ".spec.volumeClaimTemplates[].kind"
+    tekton:
+      deploy: true
