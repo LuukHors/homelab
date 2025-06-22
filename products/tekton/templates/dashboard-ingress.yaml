@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: tekton-pipelines
+  name: tekton-dashboard
   annotations: {{- toYaml .Values.ingress.annotations }}
 spec:
   ingressClassName: {{ .Values.ingress.ingressClassName }}
