@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: gitea-admin-token
+  namespace: tekton-pipelines
+spec:
+  encryptedData:
+    token: AgCFUf+5uv+gyC8wBo5N2U9yZa277eUpv+C3i8VjhXa6sC8FXnxdfCV95ZxN/LNTPLlNJi1lLcvCTj7p99S997Ouz0Gtu5OFAVxIy4fG4Epo/iNRQHz24wPtwM1ImYbkJBvt7kkS9vf2V8CqwwudnoXkOvDDejUTy8DmHJNonuZQb34EfjXiJ+pSnk0qcE/IVNj6mp9fIEUYaX7ce1Xu/ctacxXFE0qyeA70VuhHJQR7QNbAi/67Rjcv6+/+lksu/nbOAHbZ2d7+JX0jq38pacdCTg6Fn04BEt/wLH7gk7syyfTyIIF1SB83smR4k0w+hXMZw8vVlsn5b9qsrserV6TG7+yGmeKmXPG5hDVwWU0Ya+TMogiUiHRts9Hnv87Pfn+PSasDyiyPLjpyE4kyYF37BfWJtHjpB3M5y67xaa4BikX0wNSCIpfr1K1zHaSXvzbnuXzbOshR0WUGeN3WrTlEKJNBJ/cRfeA0GRpyUzUNNII2YuwLMMyuf06rzWoJlv6KMCvce1H42BV1OgdOoQxGDZYAQcj7sWgt+ih1QjKAryEmLrl9sGO8A6PzjuCCFE0228yn1ZSEjSaJeR8N8J2xt3FpCREr1op31ovx0cwonmMCemry1eSQ8h6jb0tJpAG4H46vYOfkSkOTKu2c6Sj9m1q80FCM5vOaGTqVaP3ehx6zQbvkmwU2F7AII2b1LZBdSRn3IOb3Jr0MRO0YITekHeeobJGqDiF1fhXhXh6/n9OuhN4RTpVL
+  template:
+    metadata:
+      creationTimestamp: null
+      name: gitea-admin-token
+      namespace: tekton-pipelines
+    type: Opaque
