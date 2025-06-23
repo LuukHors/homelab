@@ -18,6 +18,7 @@ spec:
     displayName: Set Gitea status to pending
     description: Sets the Gitea status of a specific commit sha to the pending status.
     taskRef:
+      kind: Task
       name: gitea-set-status
     params:
       - name: GITEA_HOST_URL
