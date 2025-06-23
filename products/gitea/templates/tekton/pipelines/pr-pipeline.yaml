@@ -3,7 +3,7 @@ kind: Pipeline
 metadata:
   name: gitea-pr-pipeline
 spec:	
-	params:
+  params:
     - name: gitea-url
       type: string
       description: The Gitea repository URL
@@ -13,9 +13,9 @@ spec:
     - name: sha
       type: string
       description: The commit SHA for Gitea status updates
-	tasks:
-	- name: set-initial-status
-		displayName: Set Gitea status to pending
+  tasks:
+  - name: set-initial-status
+    displayName: Set Gitea status to pending
     description: Sets the Gitea status of a specific commit sha to the pending status.
     taskRef:
       name: gitea-set-status

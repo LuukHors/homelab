@@ -5,11 +5,11 @@ metadata:
 spec:
   params:
   - name: gitea-url
-		description: The Gitea repository URL
-	- name: repository-full-name
-		description: The Gitea repository full name
-	- name: sha
-		description: The commit SHA for Gitea status updates
+    description: The Gitea repository URL
+  - name: repository-full-name
+    description: The Gitea repository full name
+  - name: sha
+    description: The commit SHA for Gitea status updates
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
@@ -20,8 +20,8 @@ spec:
         name: gitea-pr-pipeline
       params:
       - name: gitea-url
-				value: $(tt.params.gitea-url)
-			- name: repository-full-name
-				value: $(tt.params.repository-full-name)
-			- name: sha
-				value: $(tt.params.sha)
+        value: $(tt.params.gitea-url)
+      - name: repository-full-name
+        value: $(tt.params.repository-full-name)
+      - name: sha
+        value: $(tt.params.sha)

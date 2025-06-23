@@ -1,3 +1,5 @@
 resources:
+  - https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml
+  - https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
   - https://storage.googleapis.com/tekton-releases/pipeline/previous/v1.1.0/release.yaml
   - https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.58.0/release.yaml
