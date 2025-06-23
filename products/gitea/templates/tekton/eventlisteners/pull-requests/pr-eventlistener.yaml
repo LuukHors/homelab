@@ -7,6 +7,7 @@ spec:
   triggers:
     - name: gitea-pr-listener
       bindings:
-        - ref: gitea-pr-triggerbinding
+        - kind: TriggerBinding
+          ref: gitea-pr-triggerbinding
       template:
         ref: gitea-pr-pipeline-template

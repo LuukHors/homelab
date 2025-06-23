@@ -107,6 +107,7 @@ spec:
 
   steps:
     - name: set-status
+      resources: {}
       volumeMounts:
         - name: giteatoken
           mountPath: /etc/gitea-set-status
