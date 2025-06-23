@@ -1,0 +1,33 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: gitea-pr-pipeline
+spec:	
+	params:
+    - name: gitea-url
+      type: string
+      description: The Gitea repository URL
+    - name: repository-full-name
+      type: string
+      description: The Gitea repository full name
+    - name: sha
+      type: string
+      description: The commit SHA for Gitea status updates
+	tasks:
+	- name: set-initial-status
+		displayName: Set Gitea status to pending
+    description: Sets the Gitea status of a specific commit sha to the pending status.
+    taskRef:
+      name: gitea-set-status
+    params:
+      - name: GITEA_HOST_URL
+        value: "$(params.gitea-url)"
+      - name: REPO_FULL_NAME
+        value: "$(params.repository-full-name)"
+      - name: SHA
+        value: "$(params.sha)"
+      - name: STATE
+        value: Pending
+      - name: TARGET_URL
+        value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
+      

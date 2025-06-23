@@ -1,0 +1,12 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: gitea-pr-triggerbinding
+spec:
+  params:
+    - name: gitea-url
+      value: https://git.internal.sealeo.io
+    - name: repository-full-name
+      value: $(body.repository.full_name)
+    - name: sha
+      value: $(body.after)
