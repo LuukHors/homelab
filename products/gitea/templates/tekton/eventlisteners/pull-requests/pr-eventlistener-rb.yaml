@@ -17,7 +17,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: pr-eventlistener-service-account
-  namespace: default
+  namespace: gitea
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
