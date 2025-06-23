@@ -4,9 +4,9 @@ metadata:
   name: gitea-pr-eventlistener
 spec:
   serviceAccountName: pr-eventlistener-service-account
-triggers:
-  - name: gitea-pr-listener
-    bindings:
-      - ref: gitea-pr-triggerbinding
-    template:
-      ref: gitea-pr-pipeline-template
+  triggers:
+    - name: gitea-pr-listener
+      bindings:
+        - ref: gitea-pr-triggerbinding
+      template:
+        ref: gitea-pr-pipeline-template
