@@ -31,6 +31,8 @@ gitea:
 
   gitea:
     config:
+      webhook:
+        ALLOWED_HOST_LIST: "*"
       database:
         DB_TYPE: postgres
         HOST: gitea-postgres-rw:5432

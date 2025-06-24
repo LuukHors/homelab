@@ -23,8 +23,6 @@ spec:
     params:
       - name: GITEA_HOST_URL
         value: "$(params.gitea-url)"
-      - name: REPO_FULL_NAME
-        value: "$(params.repository-full-name)"
       - name: SHA
         value: "$(params.sha)"
       - name: STATE

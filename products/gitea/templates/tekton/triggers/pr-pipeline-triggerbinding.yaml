@@ -5,8 +5,6 @@ metadata:
 spec:
   params:
     - name: gitea-url
-      value: https://git.internal.sealeo.io
-    - name: repository-full-name
-      value: $(body.repository.full_name)
+      value: $(body.repository.url)
     - name: sha
-      value: $(body.after)
+      value: $(body.workflow_job.head_sha)

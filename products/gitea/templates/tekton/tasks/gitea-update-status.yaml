@@ -26,24 +26,7 @@ spec:
   params:
   - name: GITEA_HOST_URL
     description: |
-      The Gitea host, e.g: git.yourcompany.com. Can include port.
-    type: string
-
-  - name: GITEA_HTTPS_OR_HTTP
-    description: |
-      If we should connect with HTTP or HTTPS. Use "http" or "https" here.
-    type: string
-    default: https
-
-  - name: API_PATH_PREFIX
-    description: |
-      The API path prefix of Gitea, default: /api/v1
-    default: "/api/v1"
-    type: string
-
-  - name: REPO_FULL_NAME
-    description: |
-      The Gitea repository full name, e.g.: tektoncd/catalog
+      The Gitea host and api and repository
     type: string
 
   - name: GITEA_TOKEN_SECRET_NAME
@@ -124,8 +107,7 @@ spec:
 
         gitea_token = open("/etc/gitea-set-status/$(params.GITEA_TOKEN_SECRET_KEY)", "r").read()
 
-        status_url = "$(params.API_PATH_PREFIX)" + "/repos/$(params.REPO_FULL_NAME)/" + \
-            "statuses/$(params.SHA)"
+        status_url = "$(params.GITEA_HOST_URL)" + "/statuses/$(params.SHA)"
 
         data = {
             "state": "$(params.STATE)",
@@ -138,10 +120,7 @@ spec:
 
         authHeader = "token " + gitea_token
 
-        if "$(params.GITEA_HTTPS_OR_HTTP)" == "https":
-          conn = http.client.HTTPSConnection("$(params.GITEA_HOST_URL)")
-        else:
-          conn = http.client.HTTPConnection("$(params.GITEA_HOST_URL)")
+        conn = http.client.HTTPSConnection(status_url)
 
         conn.request(
             "POST",
@@ -160,4 +139,4 @@ spec:
             sys.exit(1)
         else:
             print("Gitea status '$(params.STATE)' has been set on "
-                "$(params.REPO_FULL_NAME)#$(params.SHA) ")
+                "$(params.GITEA_HOST_URL)#$(params.SHA) ")
