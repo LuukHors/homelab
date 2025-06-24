@@ -26,4 +26,6 @@ spec:
         value: Pending
       - name: TARGET_URL
         value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
+      - name: DESCRIPTION
+        value: Setting status to pending
       
