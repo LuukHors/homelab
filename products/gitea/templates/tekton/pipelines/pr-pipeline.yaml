@@ -25,7 +25,7 @@ spec:
       - name: STATE
         value: pending
       - name: TARGET_URL
-        value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
+        value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Acknowledged pipeline run by Tekton
   - name: set-success-status
