@@ -120,7 +120,8 @@ spec:
 
         authHeader = "token " + gitea_token
 
-        conn = http.client.HTTPSConnection(status_url.split("https://")[0])
+        withouthttps = status_url.split("https://")[0]
+        conn = http.client.HTTPSConnection(withouthttps)
 
         conn.request(
             "POST",
