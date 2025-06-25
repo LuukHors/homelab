@@ -27,5 +27,21 @@ spec:
       - name: TARGET_URL
         value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
-        value: Setting status to pending
-      
+        value: Acknowledged pipeline run by Tekton
+  - name: set-success-status
+    displayName: Set Gitea status to success
+    description: Sets the Gitea status of a specific commit sha to the success status.
+    taskRef:
+      kind: Task
+      name: gitea-set-status
+    params:
+      - name: GITEA_HOST_URL
+        value: "$(params.gitea-url)"
+      - name: SHA
+        value: "$(params.sha)"
+      - name: STATE
+        value: Success
+      - name: TARGET_URL
+        value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
+      - name: DESCRIPTION
+        value: Completed pipeline run by Tekton
