@@ -31,6 +31,8 @@ spec:
   - name: set-success-status
     displayName: Set Gitea status to success
     description: Sets the Gitea status of a specific commit sha to the success status.
+    runAfter:
+      - set-initial-status
     taskRef:
       kind: Task
       name: gitea-set-status
