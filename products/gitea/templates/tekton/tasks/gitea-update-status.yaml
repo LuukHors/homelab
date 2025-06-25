@@ -120,7 +120,7 @@ spec:
 
         authHeader = "token " + gitea_token
 
-        withouthttps = status_url.split("https://")[0]
+        withouthttps = status_url.split("https://")[1]
         print(withouthttps)
         conn = http.client.HTTPSConnection(withouthttps)
 
