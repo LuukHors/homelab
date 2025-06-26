@@ -7,4 +7,4 @@ spec:
     - name: gitea-url
       value: $(body.repository.url)
     - name: sha
-      value: $(body.pull_request.base.sha)
+      value: $(body.pull_request.head.sha)
