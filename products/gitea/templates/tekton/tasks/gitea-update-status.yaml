@@ -86,9 +86,6 @@ spec:
         import sys
         import http.client
 
-        if("$(params.STATE)" == "pending"):
-          exit(1)
-
         gitea_token = open("/etc/gitea-set-status/$(params.GITEA_TOKEN_SECRET_KEY)", "r").read()
 
         status_url = "$(params.GITEA_HOST_URL)" + "/statuses/$(params.SHA)"
