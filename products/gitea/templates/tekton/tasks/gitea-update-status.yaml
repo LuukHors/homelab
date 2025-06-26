@@ -87,7 +87,7 @@ spec:
         import http.client
 
         if("$(params.STATE)" == "pending"):
-          exit 1
+          exit(1)
 
         gitea_token = open("/etc/gitea-set-status/$(params.GITEA_TOKEN_SECRET_KEY)", "r").read()
 
