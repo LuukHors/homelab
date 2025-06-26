@@ -28,11 +28,35 @@ spec:
         value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Acknowledged pipeline run by Tekton
-  - name: set-success-status
+  finally:
+  - name: gitea-status-failed
+    displayName: Set Gitea status to failed
+    description: Sets the Gitea status of a specific commit sha to the failed status.
+    when:
+    - input: $(tasks.status)
+      operator: is
+      value: "Failed"
+    taskRef:
+      kind: Task
+      name: gitea-set-status
+    params:
+      - name: GITEA_HOST_URL
+        value: "$(params.gitea-url)"
+      - name: SHA
+        value: "$(params.sha)"
+      - name: STATE
+        value: failed
+      - name: TARGET_URL
+        value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
+      - name: DESCRIPTION
+        value: Something went wrong during the pipeline execution
+  - name: gitea-status-succeeded
     displayName: Set Gitea status to success
     description: Sets the Gitea status of a specific commit sha to the success status.
-    runAfter:
-      - set-initial-status
+    when:
+    - input: $(tasks.status)
+      operator: is
+      value: "Succeeded"
     taskRef:
       kind: Task
       name: gitea-set-status
@@ -47,3 +71,4 @@ spec:
         value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Completed pipeline run by Tekton
+  
