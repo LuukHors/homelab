@@ -34,7 +34,7 @@ spec:
     description: Sets the Gitea status of a specific commit sha to the failed status.
     when:
     - input: $(tasks.status)
-      operator: is
+      operator: in
       values: ["Failed"]
     taskRef:
       kind: Task
@@ -55,7 +55,7 @@ spec:
     description: Sets the Gitea status of a specific commit sha to the success status.
     when:
     - input: $(tasks.status)
-      operator: is
+      operator: in
       values: ["Succeeded"]
     taskRef:
       kind: Task
