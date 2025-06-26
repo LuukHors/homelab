@@ -45,7 +45,7 @@ spec:
       - name: SHA
         value: "$(params.sha)"
       - name: STATE
-        value: failed
+        value: failure
       - name: TARGET_URL
         value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
