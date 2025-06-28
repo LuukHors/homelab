@@ -6,6 +6,9 @@ spec:
   serviceAccountName: pr-eventlistener-service-account
   triggers:
     - name: gitea-pr-listener
+      interceptors:
+        - cel:
+            filter: "body.action in ['synchronized', 'opened', 'reopened']"
       bindings:
         - kind: TriggerBinding
           ref: gitea-pr-triggerbinding
