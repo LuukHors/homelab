@@ -7,8 +7,11 @@ spec:
   triggers:
     - name: gitea-pr-listener
       interceptors:
-        - cel:
-            filter: "body.action in ['synchronized', 'opened', 'reopened']"
+        - ref:
+            name: cel
+          params:
+          - name: filter
+            value: "body.action in ['opened', 'reopened', 'synchronized']"
       bindings:
         - kind: TriggerBinding
           ref: gitea-pr-triggerbinding
