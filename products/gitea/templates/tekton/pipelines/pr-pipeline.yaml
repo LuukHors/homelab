@@ -47,7 +47,7 @@ spec:
       - name: STATE
         value: failure
       - name: TARGET_URL
-        value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
+        value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Something went wrong during the pipeline execution
   - name: gitea-status-succeeded
@@ -68,7 +68,7 @@ spec:
       - name: STATE
         value: success
       - name: TARGET_URL
-        value: https://tekton.internal.sealeo.io/#/namespaces/default/pipelineruns/$(context.pipelineRun.name)
+        value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Completed pipeline run by Tekton
   
