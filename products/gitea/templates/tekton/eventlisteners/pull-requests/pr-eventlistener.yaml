@@ -8,6 +8,7 @@ spec:
     - name: gitea-pr-listener
       interceptors:
         - ref:
+            kind: ClusterInterceptor
             name: cel
           params:
           - name: filter
