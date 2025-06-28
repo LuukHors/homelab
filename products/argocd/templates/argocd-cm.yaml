@@ -18,6 +18,15 @@ data:
         - CiliumIdentity
       clusters:
         - "*"
+    - apiGroups:
+        - tekton.dev
+      kinds:
+        - PipelineRun
+        - TaskRun
+      clusters:
+        - "*"
+      namespaces:
+        - gitea
 
   resource.exclusions: |
     - apiGroups:
