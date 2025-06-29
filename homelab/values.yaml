@@ -61,5 +61,6 @@ homelab:
           - ".spec.volumeClaimTemplates[].kind"
     gitea-pipelines:
       deploy: true
+      namespace: gitea
     tekton-pipelines:
       deploy: true

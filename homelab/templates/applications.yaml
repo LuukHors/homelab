@@ -16,7 +16,7 @@ spec:
     path: products/{{ $productName }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ $productName }}
+    namespace: {{ default $productName $productInfo.namespace }}
 {{- with $productInfo.ignoreDifferences }}
   ignoreDifferences:
     {{- toYaml . | nindent 4 }}
