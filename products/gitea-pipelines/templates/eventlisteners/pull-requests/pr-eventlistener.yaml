@@ -1,6 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: EventListener
 metadata:
+  namespace: gitea
   name: gitea-pr-eventlistener
 spec:
   serviceAccountName: pr-eventlistener-service-account

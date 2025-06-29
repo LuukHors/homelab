@@ -1,6 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
+  namespace: gitea
   name: gitea-pr-pipeline
 spec:	
   params:

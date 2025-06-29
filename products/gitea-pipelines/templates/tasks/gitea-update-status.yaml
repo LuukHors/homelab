@@ -2,6 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
+  namespace: gitea
   name: gitea-set-status
 spec:
   params:

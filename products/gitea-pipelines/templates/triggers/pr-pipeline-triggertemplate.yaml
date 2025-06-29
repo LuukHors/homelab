@@ -1,6 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
+  namespace: gitea
   name: gitea-pr-pipeline-template
 spec:
   params:
