@@ -59,5 +59,7 @@ homelab:
         jqPathExpressions:
           - ".spec.volumeClaimTemplates[].apiVersion"
           - ".spec.volumeClaimTemplates[].kind"
+    gitea-pipelines:
+      deploy: true
     tekton-pipelines:
       deploy: true
