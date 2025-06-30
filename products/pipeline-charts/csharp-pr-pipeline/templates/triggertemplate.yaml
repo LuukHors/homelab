@@ -14,9 +14,6 @@ spec:
     kind: PipelineRun
     metadata:
       generateName: gitea-pr-pipeline-run-
-      metadata:
-        annotations:
-          argocd.argoproj.io/compare-options: IgnoreExtraneous
     spec:
       pipelineRef:
         name: gitea-pr-pipeline

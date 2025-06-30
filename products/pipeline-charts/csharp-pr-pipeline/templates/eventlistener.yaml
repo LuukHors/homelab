@@ -1,7 +1,6 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: EventListener
 metadata:
-  namespace: gitea
   name: gitea-pr-eventlistener
 spec:
   serviceAccountName: pr-eventlistener-service-account
@@ -14,6 +13,8 @@ spec:
           params:
           - name: filter
             value: "body.action in ['opened', 'reopened', 'synchronized']"
+          - name: filter
+            value: "body.action == 'closed' && body.merged"
       bindings:
         - kind: TriggerBinding
           ref: gitea-pr-triggerbinding

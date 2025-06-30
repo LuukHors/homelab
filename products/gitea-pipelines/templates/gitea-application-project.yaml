@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gitea-project
+spec:
+  sourceRepos: 
+    - https://git.internal.sealeo.io/*
+    - https://github.com/LuukHors/homelab
+  destinations:
+    - namespace: gitea
+      server: https://kubernetes.default.svc

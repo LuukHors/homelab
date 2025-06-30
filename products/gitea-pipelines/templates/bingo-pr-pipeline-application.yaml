@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bingo-pr-pipeline
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: gitea-project
+  source:
+    repoURL: https://github.com/LuukHors/homelab.git
+    targetRevision: HEAD
+    path: products/pipeline-charts/csharp-pr-pipeline
+    helm:
+      valuesObject:
+        tests:
+          enabled: true
+          minimumCoveragePercentage: 80
+          executeMutationTests: false
+          minimumMutationScore: 60
+        containerRegistry:
+          enabled: true
+          repositoryName: bingo
+          npaTokenSealed: 
+        chartRepository:
+          enabled: true
+          name: LuukHorsman/charts
+          revision: main
+          npaTokenSealed: 
+        ingress:
+          enabled: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitea
+  revisionHistoryLimit: 1
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 5
+        maxDuration: 10m
