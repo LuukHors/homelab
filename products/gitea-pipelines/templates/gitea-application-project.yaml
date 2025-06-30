@@ -4,9 +4,9 @@ metadata:
   name: gitea-project
 spec:
   sourceRepos: 
-    - https://git.internal.sealeo.io/*
-    - https://github.com/LuukHors/homelab
+    # - https://git.internal.sealeo.io/*
+    # - https://github.com/LuukHors/homelab
     - '*'
-  destinations:
-    - namespace: gitea
-      server: https://kubernetes.default.svc
+  # destinations:
+  #   - namespace: gitea
+  #     server: https://kubernetes.default.svc
