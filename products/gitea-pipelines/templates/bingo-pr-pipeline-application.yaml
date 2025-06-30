@@ -8,7 +8,7 @@ metadata:
 spec:
   project: gitea-project
   source:
-    repoURL: https://github.com/LuukHors/homelab.git
+    repoURL: https://github.com/LuukHors/homelab
     targetRevision: HEAD
     path: products/pipeline-charts/csharp-pr-pipeline
     helm:
