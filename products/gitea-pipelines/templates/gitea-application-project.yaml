@@ -10,3 +10,6 @@ spec:
   destinations:
     - namespace: gitea
       server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
