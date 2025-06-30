@@ -12,9 +12,7 @@ spec:
             name: cel
           params:
           - name: filter
-            value: "body.action in ['opened', 'reopened', 'synchronized']"
-          - name: filter
-            value: "body.action == 'closed' && body.merged"
+            value: "body.action in ['opened', 'reopened', 'synchronized'] || body.action == 'closed' && body.merged"
       bindings:
         - kind: TriggerBinding
           ref: gitea-pr-triggerbinding
