@@ -1,8 +1,8 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  namespace: gitea
-  name: gitea-pr-pipeline-template
+  namespace: {{ .Values.pipeline.namespace }}
+  name: {{ .Values.pipeline.name }}-pipeline-template
 spec:
   params:
   - name: gitea-url
@@ -13,10 +13,10 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      generateName: gitea-pr-pipeline-run-
+      generateName: {{ .Values.pipeline.name }}-pipeline-run-
     spec:
       pipelineRef:
-        name: gitea-pr-pipeline
+        name: {{ .Values.pipeline.name }}-pipeline
       params:
       - name: gitea-url
         value: $(tt.params.gitea-url)

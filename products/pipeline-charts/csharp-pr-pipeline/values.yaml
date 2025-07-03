@@ -1,18 +1,20 @@
 pipeline:
   name: main
+  namespace: gitea
+  npaTokenSealed: 
 
-tests:
+executeTests:
   enabled: true
   minimumCoveragePercentage: 80
   executeMutationTests: false
   minimumMutationScore: 60
 
-containerRegistry:
+updateDockerImages:
   enabled: true
   repositoryName: bingo
   npaTokenSealed: 
 
-chartRepository:
+updateChartRepository:
   enabled: true
   name: LuukHorsman/charts
   revision: main

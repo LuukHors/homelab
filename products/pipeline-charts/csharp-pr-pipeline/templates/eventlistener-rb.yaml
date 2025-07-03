@@ -1,10 +1,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: pr-eventlistener-role-binding
+  name: {{ .Values.pipeline.name }}-eventlistener-role-binding
 subjects:
 - kind: ServiceAccount
-  name: pr-eventlistener-service-account
+  name: {{ .Values.pipeline.name }}-eventlistener-service-account
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -13,11 +13,11 @@ roleRef:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: pr-eventlistener-role-clusterbinding
+  name: {{ .Values.pipeline.name }}-eventlistener-role-clusterbinding
 subjects:
 - kind: ServiceAccount
-  name: pr-eventlistener-service-account
-  namespace: gitea
+  name: {{ .Values.pipeline.name }}-eventlistener-service-account
+  namespace: {{ .Values.pipeline.namespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -1,11 +1,12 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: EventListener
 metadata:
-  name: gitea-pr-eventlistener
+  namespace: {{ .Values.pipeline.namespace }}
+  name: {{ .Values.pipeline.name }}-eventlistener
 spec:
   serviceAccountName: pr-eventlistener-service-account
   triggers:
-    - name: gitea-pr-listener
+    - name: {{ .Values.pipeline.name }}-listener
       interceptors:
         - ref:
             kind: ClusterInterceptor
@@ -15,6 +16,6 @@ spec:
             value: "body.action in ['opened', 'reopened', 'synchronized'] || body.action == 'closed' && body.pull_request.merged"
       bindings:
         - kind: TriggerBinding
-          ref: gitea-pr-triggerbinding
+          ref: {{ .Values.pipeline.name }}-triggerbinding
       template:
-        ref: gitea-pr-pipeline-template
+        ref: {{ .Values.pipeline.name }}-pipeline-template

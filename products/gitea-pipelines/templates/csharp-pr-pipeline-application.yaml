@@ -1,7 +1,8 @@
+{{- range $pipeline := .Values.csharpPullRequestPipelines }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bingo-pr-pipeline
+  name: {{ $pipeline.pipeline.name }}-csharp-pr-pipeline
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,23 +13,14 @@ spec:
     targetRevision: HEAD
     path: products/pipeline-charts/csharp-pr-pipeline
     helm:
-      valuesObject:
-        tests:
-          enabled: true
-          minimumCoveragePercentage: 80
-          executeMutationTests: false
-          minimumMutationScore: 60
-        containerRegistry:
-          enabled: true
-          repositoryName: bingo
-          npaTokenSealed: 
-        chartRepository:
-          enabled: true
-          name: LuukHorsman/charts
-          revision: main
-          npaTokenSealed: 
-        ingress:
-          enabled: false
+      valuesObject: |
+        pipeline:
+          name: {{ $pipeline.name }}
+          npaTokenSealed: {{ $pipeline.npaTokenSealed }}
+        executeTests: {{ toYaml $pipeline.executeTests | nindent 10  }}
+        updateDockerImages: {{ toYaml $pipeline.updateDockerImages | nindent 10  }}
+        updateChartRepository: {{ toYaml $pipeline.updateChartRepository | nindent 10  }}
+        ingress: {{ toYaml $pipeline.ingress | nindent 10  }}
   destination:
     server: https://kubernetes.default.svc
     namespace: gitea
@@ -45,3 +37,4 @@ spec:
         duration: 5s
         factor: 5
         maxDuration: 10m
+{{ end -}}
