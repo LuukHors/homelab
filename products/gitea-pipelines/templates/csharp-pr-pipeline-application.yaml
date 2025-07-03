@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ $pipeline.pipeline.name }}-csharp-pr-pipeline
+  name: {{ $pipeline.name }}-csharp-pr-pipeline
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
