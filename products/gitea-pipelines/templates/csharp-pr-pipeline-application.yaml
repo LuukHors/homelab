@@ -13,7 +13,7 @@ spec:
     targetRevision: HEAD
     path: products/pipeline-charts/csharp-pr-pipeline
     helm:
-      valuesObject: |
+      valuesObject:
         pipeline:
           name: {{ $pipeline.name }}
           npaTokenSealed: {{ $pipeline.npaTokenSealed }}
