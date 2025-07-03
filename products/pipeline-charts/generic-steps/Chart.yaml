@@ -1,0 +1,3 @@
+apiVersion: v2
+name: csharp-pipeline
+version: 1.0.0

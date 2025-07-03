@@ -15,7 +15,7 @@ spec:
     description: |
       The name of the kubernetes secret that contains the Gitea token, default: gitea
     type: string
-    default: {{ .Values.pipeline.name }}-gitea-admin-token
+    default: gitea-admin-token
 
   - name: GITEA_TOKEN_SECRET_KEY
     description: |

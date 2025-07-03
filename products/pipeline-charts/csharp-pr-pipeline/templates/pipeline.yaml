@@ -29,6 +29,8 @@ spec:
         value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Acknowledged pipeline run by Tekton
+      - name: GITEA_TOKEN_SECRET_NAME
+        value: {{ .Values.pipeline.name }}-gitea-admin-token
   finally:
   - name: gitea-status-failed
     displayName: Set Gitea status to failed
