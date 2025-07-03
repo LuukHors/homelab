@@ -53,6 +53,8 @@ spec:
         value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Something went wrong during the pipeline execution
+      - name: GITEA_TOKEN_SECRET_NAME
+        value: {{ .Values.pipeline.name }}-gitea-admin-token
   - name: gitea-status-succeeded
     displayName: Set Gitea status to success
     description: Sets the Gitea status of a specific commit sha to the success status.
@@ -74,4 +76,6 @@ spec:
         value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Completed pipeline run by Tekton
+      - name: GITEA_TOKEN_SECRET_NAME
+        value: {{ .Values.pipeline.name }}-gitea-admin-token
   
