@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
-  name: {{ .Values.pipeline.namespace }}-triggerbinding
+  name: {{ .Values.pipeline.name }}-triggerbinding
 spec:
   params:
     - name: gitea-url
