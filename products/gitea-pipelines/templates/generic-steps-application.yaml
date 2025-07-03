@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: generic-steps
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: gitea-project
+  source:
+    repoURL: https://github.com/LuukHors/homelab
+    targetRevision: HEAD
+    path: products/pipeline-charts/generic-steps
+    helm:
+      valuesObject: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitea
+  revisionHistoryLimit: 1
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 5
+        maxDuration: 10m
