@@ -6,6 +6,12 @@ harborDatabase:
 harbor:
   core:
     revisionHistoryLimit: 0
+    extraEnvVars:
+    - name: CONFIG_OVERWRITE_JSON
+      valueFrom:
+        secretKeyRef:
+          name: harbor-oidc-secret
+          key: oidcConfig
   jobservice:
     revisionHistoryLimit: 0
   registry:
