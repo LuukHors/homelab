@@ -25,5 +25,13 @@ spec:
           mountPath: /root/.ssh/id_rsa
       image: alpine/git:v2.49.0
       script: |
-        git clone git@gitea-ssh:LuukHorsman/test.git
+        cat <<EOF > ~/.ssh/config
+        Host git.internal.sealeo.io
+            HostName gitea-ssh.gitea.svc.cluster.local
+            User git
+            Port 22
+            StrictHostKeyChecking no
+        EOF
+
+        git clone git@git.internal.sealeo.io:LuukHorsman/test.git
 {{- end }}
