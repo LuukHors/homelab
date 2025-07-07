@@ -37,7 +37,6 @@ spec:
     taskRef:
       kind: Task
       name: {{ .Values.pipeline.name }}-csharp-build-and-push-images
-    params: []
   
   finally:
   - name: gitea-status-failed
