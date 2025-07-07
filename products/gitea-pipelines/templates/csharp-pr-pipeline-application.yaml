@@ -19,16 +19,16 @@ spec:
           npaTokenSealed: {{ $pipeline.npaTokenSealed }}
           giteaSshPrivateKey: {{ $pipeline.giteaSshPrivateKey }}
         {{- with $pipeline.executeTests }}
-        executeTests: {{ toYaml . | nindent 10  }}
+        executeTests: {{ toYaml $pipeline.executeTests | nindent 10  }}
         {{- end -}}
         {{- with $pipeline.updateDockerImages }}
-        updateDockerImages: {{ toYaml . | nindent 10  }}
+        updateDockerImages: {{ toYaml $pipeline.updateDockerImages | nindent 10  }}
         {{- end -}}
         {{- with $pipeline.updateChartRepository }}
-        updateChartRepository: {{ toYaml . | nindent 10  }}
+        updateChartRepository: {{ toYaml $pipeline.updateChartRepository | nindent 10  }}
         {{- end -}}
         {{- with $pipeline.ingress }}
-        ingress: {{ toYaml . | nindent 10  }}
+        ingress: {{ toYaml $pipeline.ingress | nindent 10  }}
         {{- end -}}
   destination:
     server: https://kubernetes.default.svc
