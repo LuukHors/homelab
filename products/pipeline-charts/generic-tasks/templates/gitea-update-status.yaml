@@ -76,7 +76,6 @@ spec:
       volumeMounts:
         - name: giteatoken
           mountPath: /etc/gitea-set-status
-
       image: $(params.IMAGE)
       script: |
         #!$(params.SHEBANG)

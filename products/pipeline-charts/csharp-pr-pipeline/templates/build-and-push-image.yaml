@@ -45,6 +45,5 @@ spec:
       volumeMounts:
         - name:
           mountPath: /root/.ssh/id_rsa
-      script: |
+      script: >
         git clone git@git.internal.sealeo.io:LuukHorsman/test.git
-    
