@@ -39,12 +39,3 @@ spec:
       volumeMounts:
         - name:
           mountPath: /root/.ssh/id_rsa
-    # - name: perhaps-check-for-version-changes
-    # - name: build-and-push-images
-    #   resources: {}
-    #   volumeMounts:
-    #     - name: docker-config
-    #       mountPath: /root/.docker
-    #   image: quay.io/buildah/stable:v1.40.1
-    #   script: |
-    #     #!$(params.SHEBANG)
