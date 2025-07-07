@@ -21,7 +21,7 @@ spec:
     - name: git-checkout-branch
       resources: {}
       volumeMounts:
-        - name:
+        - name: git-ssh-private-key
           mountPath: /root/.ssh/id_rsa
       image: alpine/git:v2.49.0
       script: |
