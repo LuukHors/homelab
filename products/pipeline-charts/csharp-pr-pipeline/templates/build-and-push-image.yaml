@@ -1,4 +1,4 @@
-{{ if and .Values.updateDockerImages.enabled .Values.pipeline.giteaSshPrivateKey }}
+{{- if and .Values.updateDockerImages.enabled .Values.pipeline.giteaSshPrivateKey }}
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
@@ -25,48 +25,5 @@ spec:
           mountPath: /root/.ssh/id_rsa
       image: alpine/git:v2.49.0
       script: |
-        #!$(params.SHEBANG)
-
-        """This script will set the CI status on a Gitea commit"""
-
-        import json
-        import sys
-        import http.client
-
-        gitea_token = open("/etc/gitea-set-status/$(params.GITEA_TOKEN_SECRET_KEY)", "r").read()
-
-        status_url = "$(params.GITEA_HOST_URL)" + "/statuses/$(params.SHA)"
-
-        data = {
-            "state": "$(params.STATE)",
-            "target_url": "$(params.TARGET_URL)",
-            "description": "$(params.DESCRIPTION)",
-            "context": "$(params.CONTEXT)"
-        }
-        print("Sending this data to Gitea: ")
-        print(data)
-
-        authHeader = "token " + gitea_token
-
-        withouthttps = status_url.split("/")[2]
-        print(withouthttps)
-        conn = http.client.HTTPSConnection(withouthttps)
-
-        conn.request(
-            "POST",
-            status_url,
-            body=json.dumps(data),
-            headers={
-                "User-Agent": "TektonCD, the peaceful cat",
-                "Authorization": authHeader,
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            })
-        resp = conn.getresponse()
-        if not str(resp.status).startswith("2"):
-            print("Error: %d" % (resp.status))
-            print(resp.read())
-            sys.exit(1)
-        else:
-            print("Gitea status '$(params.STATE)' has been set on "
-                "$(params.GITEA_HOST_URL)#$(params.SHA) ")
+        git clone git@git.internal.sealeo.io:LuukHorsman/test.git
+{{- end }}
