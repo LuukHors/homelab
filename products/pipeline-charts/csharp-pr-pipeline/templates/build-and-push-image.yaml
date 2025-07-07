@@ -15,7 +15,6 @@ spec:
   # - name: globPath
   #   type: string
   #   description: Glob pattern to find the Dockerfiles.
-
   - name: SHEBANG
     description: |
       Python path. Depends on the image.
@@ -31,11 +30,21 @@ spec:
     #     secretName: $(params.pipelineName)-buildah-docker-auth
 
   steps:
+  # - name: perhaps-check-for-version-changes
+  # - name: build-and-push-images
+  #   resources: {}
+  #   volumeMounts:
+  #     - name: docker-config
+  #       mountPath: /root/.docker
+  #   image: quay.io/buildah/stable:v1.40.1
+  #   script: |
+  #     #!$(params.SHEBANG)
     - name: git-checkout-branch
       resources: {}
       image: alpine/git:v2.49.0
-      script: |
-        git clone git@git.internal.sealeo.io:LuukHorsman/test.git
       volumeMounts:
         - name:
           mountPath: /root/.ssh/id_rsa
+      script: |
+        git clone git@git.internal.sealeo.io:LuukHorsman/test.git
+    
