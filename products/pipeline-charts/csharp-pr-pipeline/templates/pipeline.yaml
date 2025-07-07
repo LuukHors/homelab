@@ -31,6 +31,14 @@ spec:
         value: Acknowledged pipeline run by Tekton
       - name: GITEA_TOKEN_SECRET_NAME
         value: {{ .Values.pipeline.name }}-gitea-admin-token
+  - name: build-docker-images
+    displayName: Build C# Docker images
+    description: Building all C# docker images in a repository
+    taskRef:
+      kind: Task
+      name: {{ .Values.pipeline.name }}-csharp-build-and-push-images
+    params:
+  
   finally:
   - name: gitea-status-failed
     displayName: Set Gitea status to failed

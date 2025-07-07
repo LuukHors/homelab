@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: generic-steps
+  name: generic-tasks
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/LuukHors/homelab
     targetRevision: HEAD
-    path: products/pipeline-charts/generic-steps
+    path: products/pipeline-charts/generic-tasks
     helm:
       valuesObject: {}
   destination:

@@ -1,21 +1,22 @@
 pipeline:
   name: main
   namespace: gitea
+  giteaSshPrivateKey: 
   npaTokenSealed: 
 
 executeTests:
-  enabled: true
+  enabled: false
   minimumCoveragePercentage: 80
   executeMutationTests: false
   minimumMutationScore: 60
 
 updateDockerImages:
-  enabled: true
+  enabled: false
   repositoryName: bingo
   npaTokenSealed: 
 
 updateChartRepository:
-  enabled: true
+  enabled: false
   name: LuukHorsman/charts
   revision: main
   npaTokenSealed: 

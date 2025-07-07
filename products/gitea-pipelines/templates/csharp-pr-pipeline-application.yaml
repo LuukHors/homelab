@@ -17,6 +17,7 @@ spec:
         pipeline:
           name: {{ $pipeline.name }}
           npaTokenSealed: {{ $pipeline.npaTokenSealed }}
+          giteaSshPrivateKey: {{ $pipeline.giteaSshPrivateKey }}
         executeTests: {{ toYaml $pipeline.executeTests | nindent 10  }}
         updateDockerImages: {{ toYaml $pipeline.updateDockerImages | nindent 10  }}
         updateChartRepository: {{ toYaml $pipeline.updateChartRepository | nindent 10  }}
