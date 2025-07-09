@@ -21,6 +21,9 @@ spec:
     spec:
       pipelineRef:
         name: {{ .Values.pipeline.name }}-pipeline
+      workspaces: 
+        - name: gitrepo
+          emptyDir: {}
       params:
       - name: gitea-url
         value: $(tt.params.gitea-url)
