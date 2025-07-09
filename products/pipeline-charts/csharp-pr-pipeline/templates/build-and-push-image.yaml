@@ -25,6 +25,7 @@ spec:
           mountPath: /var/.ssh/id_rsa
       image: alpine/git:v2.49.0
       script: |
+        cat /var/.ssh/id_rsa
         mkdir -p /root/.ssh
         cp /var/.ssh/id_rsa ~/.ssh/id_rsa
         chmod 600 /root/.ssh/id_rsa
