@@ -40,8 +40,8 @@ spec:
       script: |
         shopt -s globstar
         for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
-          dir = $(dirname "$file")
-          echo "Processing $dir + $file"
+          folder = $(dirname "$file")
+          echo "Processing $folder + $file"
         done
   volumes:
     - name: gitea-ssh-private-key
