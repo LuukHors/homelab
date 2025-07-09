@@ -6,11 +6,12 @@ metadata:
   name: {{ .Values.pipeline.name }}-csharp-build-and-push-images
 spec:
   params:
-  - name: SHEBANG
-    description: |
-      Python path. Depends on the image.
+  - name: branch
     type: string
-    default: /usr/bin/env python
+    default: main
+  - name: repository
+    type: string
+    default: LuukHorsman/test
 
   volumes:
     - name: gitea-ssh-private-key
@@ -31,5 +32,5 @@ spec:
         
         ssh-keyscan -p 22 gitea-ssh.gitea.svc.cluster.local >> ~/.ssh/known_hosts
 
-        git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/LuukHorsman/test.git
+        git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
 {{- end }}
