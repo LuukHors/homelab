@@ -42,6 +42,9 @@ spec:
     description: Building all C# docker images in a repository
     runAfter:
       - set-initial-status
+    workspaces:
+      - name: gitrepo
+        emptyDir: {}
     taskRef:
       kind: Task
       name: {{ .Values.pipeline.name }}-csharp-build-and-push-images

@@ -14,9 +14,7 @@ spec:
     default: LuukHorsman/test
   workspaces:
     - name: gitrepo
-      optional: true
       mountPath: /workspaces/git-repository
-      emptyDir: {}
   steps:
     - name: git-checkout-branch
       resources: {}
