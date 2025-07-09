@@ -44,7 +44,7 @@ spec:
       - set-initial-status
     workspaces:
       - name: gitrepo
-        emptyDir: {}
+      
     taskRef:
       kind: Task
       name: {{ .Values.pipeline.name }}-csharp-build-and-push-images
