@@ -38,6 +38,7 @@ spec:
       resources: {}
       image: quay.io/buildah/stable:v1.40.1
       script: |
+        shopt -s globstar
         for file in $(workspaces.gitrepo.path)/test/**/*; do
           echo "Processing $file"
           # Your commands here
