@@ -32,7 +32,7 @@ spec:
         echo 'Cloning repository: $(params.repository)'
         echo 'Cloning branch: $(params.branch)'
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
-        cp test/ "$(workspaces.gitrepo.path)"/test
+        cp -r test/ "$(workspaces.gitrepo.path)"/test
     # - name: asdf
   volumes:
     - name: gitea-ssh-private-key
