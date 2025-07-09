@@ -25,6 +25,8 @@ spec:
           mountPath: /root/.ssh/id_rsa
       image: alpine/git:v2.49.0
       script: |
+        chmod 600 ~/.ssh/id_rsa
+
         ssh-keyscan -p 22 gitea-ssh.gitea.svc.cluster.local >> ~/.ssh/known_hosts
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/LuukHorsman/test.git
 {{- end }}
