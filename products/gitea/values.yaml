@@ -4,6 +4,9 @@ database:
   size: 16Gi
 
 gitea:
+  service:
+    ssh:
+      clusterIP:
   ingress:
     enabled: true
     className: "nginx"
