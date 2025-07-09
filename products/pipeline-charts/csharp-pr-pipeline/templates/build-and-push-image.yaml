@@ -14,6 +14,7 @@ spec:
     default: LuukHorsman/test
   workspaces:
     - name: git-repository
+      optional: true
   steps:
     - name: git-checkout-branch
       resources: {}
