@@ -35,5 +35,5 @@ spec:
         echo 'cloning repository: $(params.repository)'
         echo 'cloning branch: $(params.branch)'
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
-        echo 'cloned repository into ~/test/'
+        echo 'cloned repository into $(pwd)/test/'
 {{- end }}
