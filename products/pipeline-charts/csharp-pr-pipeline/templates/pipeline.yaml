@@ -17,6 +17,8 @@ spec:
     - name: repository
       type: string
       description: Name of the repository
+  workspaces: 
+    - name: gitrepo
   tasks:
   - name: set-initial-status
     displayName: Set Gitea status to pending
@@ -44,7 +46,7 @@ spec:
       - set-initial-status
     workspaces:
       - name: gitrepo
-      
+        workspace: gitrepo
     taskRef:
       kind: Task
       name: {{ .Values.pipeline.name }}-csharp-build-and-push-images
