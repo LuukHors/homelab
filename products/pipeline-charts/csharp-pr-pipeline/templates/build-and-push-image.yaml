@@ -32,5 +32,8 @@ spec:
         
         ssh-keyscan -p 22 gitea-ssh.gitea.svc.cluster.local >> ~/.ssh/known_hosts
 
+        echo 'cloning repository: $(params.repository)'
+        echo 'cloning branch: $(params.branch)'
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
+        echo 'cloned repository into ~/test/'
 {{- end }}
