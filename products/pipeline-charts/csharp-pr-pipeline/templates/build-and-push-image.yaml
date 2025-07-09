@@ -35,7 +35,7 @@ spec:
         cp -r test/ $(workspaces.gitrepo.path)
     # replace test/ with the actual repository (not full) name.
     - name: find-and-build-images
-      resoures: {}
+      resources: {}
       image: quay.io/buildah/stable:v1.40.1
       script: |
         for file in $(workspaces.gitrepo.path)/test/**/*; do
