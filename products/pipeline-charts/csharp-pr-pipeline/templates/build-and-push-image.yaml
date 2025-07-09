@@ -33,11 +33,12 @@ spec:
         echo 'Cloning branch: $(params.branch)'
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
         cp -r test/ $(workspaces.gitrepo.path)
+    # replace test/ with the actual repository (not full) name.
     - name: find-and-build-images
       resoures: {}
       image: quay.io/buildah/stable:v1.40.1
       script: |
-        for file in **/*; do
+        for file in $(workspaces.gitrepo.path)/test/**/*; do
           echo "Processing $file"
           # Your commands here
         done
