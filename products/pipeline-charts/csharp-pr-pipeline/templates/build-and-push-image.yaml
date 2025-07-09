@@ -41,7 +41,14 @@ spec:
         shopt -s globstar
         for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
           folder=$(dirname "$file")
-          echo "Processing $folder + $file"
+          echo "Processing $file"
+          echo "Getting version from $folder/Directory.Build.props"
+
+          if [ ! -e "filename.txt" ]; then
+            echo "$folder/Directory.Build.props does not exist"
+            exit 1
+          fi
+
         done
   volumes:
     - name: gitea-ssh-private-key
