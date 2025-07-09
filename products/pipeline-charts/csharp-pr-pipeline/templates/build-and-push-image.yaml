@@ -39,11 +39,10 @@ spec:
       image: quay.io/buildah/stable:v1.40.1
       script: |
         shopt -s globstar
-        echo /workspaces/git-repository/test/**/Dockerfile
-        # for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
-        #   folder=$(dirname "$file")
-        #   echo "Processing $folder + $file"
-        # done
+        for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
+          folder=$(dirname "$file")
+          echo "Processing $folder + $file"
+        done
   volumes:
     - name: gitea-ssh-private-key
       secret: 
