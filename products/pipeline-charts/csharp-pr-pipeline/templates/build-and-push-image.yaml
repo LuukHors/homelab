@@ -44,7 +44,7 @@ spec:
           echo "Processing $file"
           echo "Getting version from $folder/Directory.Build.props"
 
-          if [ ! -e "filename.txt" ]; then
+          if [ ! -e $folder/Directory.Build.props ]; then
             echo "$folder/Directory.Build.props does not exist"
             exit 1
           fi
