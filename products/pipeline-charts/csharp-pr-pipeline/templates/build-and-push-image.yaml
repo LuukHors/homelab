@@ -33,7 +33,14 @@ spec:
         echo 'Cloning branch: $(params.branch)'
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
         cp -r test/ $(workspaces.gitrepo.path)
-    # - name: asdf
+    - name: find-and-build-images
+      resoures: {}
+      image: quay.io/buildah/stable:v1.40.1
+      script: |
+        for file in **/*; do
+          echo "Processing $file"
+          # Your commands here
+        done
   volumes:
     - name: gitea-ssh-private-key
       secret: 
