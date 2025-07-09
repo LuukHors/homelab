@@ -9,6 +9,10 @@ spec:
     description: The Gitea repository URL
   - name: sha
     description: The commit SHA for Gitea status updates
+  - name: branch
+    description: Branch of the pull-request that is requested to be merged
+  - name: repository
+    description: Name of the repository
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
