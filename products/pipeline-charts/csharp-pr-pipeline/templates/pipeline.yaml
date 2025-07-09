@@ -40,6 +40,8 @@ spec:
   - name: build-docker-images
     displayName: Build C# Docker images
     description: Building all C# docker images in a repository
+    runAfter:
+      - set-initial-status
     taskRef:
       kind: Task
       name: {{ .Values.pipeline.name }}-csharp-build-and-push-images
