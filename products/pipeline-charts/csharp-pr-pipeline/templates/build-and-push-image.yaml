@@ -22,9 +22,13 @@ spec:
       resources: {}
       volumeMounts:
         - name: gitea-ssh-private-key
-          mountPath: /root/.ssh/id_rsa
+          mountPath: /var/.ssh/id_rsa
       image: alpine/git:v2.49.0
       script: |
+        mkdir -p /root/.ssh
+        cp /var/.ssh/id_rsa ~/.ssh/id_rsa
+        chmod 600 /root/.ssh/id_rsa
+        
         ssh-keyscan -p 22 gitea-ssh.gitea.svc.cluster.local >> ~/.ssh/known_hosts
 
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/LuukHorsman/test.git
