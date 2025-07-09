@@ -8,3 +8,7 @@ spec:
       value: $(body.repository.url)
     - name: sha
       value: $(body.pull_request.head.sha)
+    - name: branch
+      value: $(body.pull_request.head.ref)
+    - name: repository
+      value: $(body.repository.full_name)

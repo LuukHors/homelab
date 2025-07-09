@@ -11,6 +11,12 @@ spec:
     - name: sha
       type: string
       description: The commit SHA for Gitea status updates
+    - name: branch
+      type: string
+      description: Branch of the pull-request that is requested to be merged
+    - name: repository
+      type: string
+      description: Name of the repository
   tasks:
   - name: set-initial-status
     displayName: Set Gitea status to pending
@@ -37,7 +43,11 @@ spec:
     taskRef:
       kind: Task
       name: {{ .Values.pipeline.name }}-csharp-build-and-push-images
-  
+    params:
+      - name: branch
+        value: $(params.branch)
+      - name: repository
+        value: $(params.repository)
   finally:
   - name: gitea-status-failed
     displayName: Set Gitea status to failed

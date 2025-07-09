@@ -22,3 +22,7 @@ spec:
         value: $(tt.params.gitea-url)
       - name: sha
         value: $(tt.params.sha)
+      - name: branch
+        value: $(tt.params.branch)
+      - name: repository
+        value: $(tt.params.repository)
