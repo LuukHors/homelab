@@ -49,9 +49,8 @@ spec:
             exit 1
           fi
 
-          VERSION=$(grep -oP '(?<=<Version>)[^<]+' $folder/Directory.Build.props)
-          echo "Version: $VERSION"
-
+          solutionVersion=$(<$folder/Directory.Build.props)
+          echo "$solutionVersion"
         done
   volumes:
     - name: gitea-ssh-private-key
