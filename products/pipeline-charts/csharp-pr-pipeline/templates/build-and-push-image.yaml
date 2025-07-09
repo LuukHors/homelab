@@ -15,6 +15,7 @@ spec:
   workspaces:
     - name: git-repository
       optional: true
+      mountPath: /workspaces/git-repository
   steps:
     - name: git-checkout-branch
       resources: {}
@@ -32,7 +33,7 @@ spec:
         echo 'Cloning repository: $(params.repository)'
         echo 'Cloning branch: $(params.branch)'
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
-        mv test/ $(workspaces.git-repository.path)
+        mv test/ "$(workspaces.git-repository.path)"
     # - name: asdf
   volumes:
     - name: gitea-ssh-private-key
