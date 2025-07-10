@@ -39,6 +39,7 @@ spec:
           mountPath: /.docker
       securityContext:
         runAsUser: 0
+        privileged: true
       image: quay.io/buildah/stable:v1.40.1
       script: |
         shopt -s globstar
