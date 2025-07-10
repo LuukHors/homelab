@@ -38,6 +38,8 @@ spec:
         - name: harbor-robot-account-credentials
           mountPath: /.docker
       image: quay.io/buildah/stable:v1.40.1
+      securityContext:
+        runAsUser: 0
       script: |
         shopt -s globstar
         for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
