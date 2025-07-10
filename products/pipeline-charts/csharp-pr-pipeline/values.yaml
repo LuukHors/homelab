@@ -12,8 +12,8 @@ executeTests:
 
 updateDockerImages:
   enabled: false
-  repositoryName: bingo
-  npaTokenSealed: 
+  repositoryName:
+  harborRobotCredentialsSealed:
 
 updateChartRepository:
   enabled: false

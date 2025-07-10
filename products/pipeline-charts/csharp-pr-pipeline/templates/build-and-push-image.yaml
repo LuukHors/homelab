@@ -8,10 +8,8 @@ spec:
   params:
   - name: branch
     type: string
-    default: main
   - name: repository
     type: string
-    default: LuukHorsman/test
   workspaces:
     - name: gitrepo
       mountPath: /workspaces/git-repository
@@ -36,6 +34,9 @@ spec:
     # replace test/ with the actual repository (not full) name.
     - name: find-and-build-images
       resources: {}
+      volumeMounts:
+        - name: harbor-robot-account-credentials
+          mountPath: /.docker
       image: quay.io/buildah/stable:v1.40.1
       script: |
         shopt -s globstar
@@ -50,10 +51,16 @@ spec:
           fi
 
           solutionVersion=$(<$folder/Directory.Build.props)
-          echo "$solutionVersion"
+          echo "Found version: $solutionVersion"
+
+
+
         done
   volumes:
     - name: gitea-ssh-private-key
       secret: 
         secretName: {{ .Values.pipeline.name }}-ssh-key
+    - name: harbor-robot-account-credentials
+      secret:
+        secretName: {{ .Values.pipeline.name }}-harbor-robot-account-credentials
 {{- end }}
