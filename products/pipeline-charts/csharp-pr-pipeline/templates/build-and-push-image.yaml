@@ -37,6 +37,8 @@ spec:
       volumeMounts:
         - name: harbor-robot-account-credentials
           mountPath: /.docker
+      securityContext:
+        runAsUser: 0
       image: quay.io/buildah/stable:v1.40.1
       script: |
         shopt -s globstar
@@ -54,7 +56,7 @@ spec:
           echo "Found version: $solutionVersion"
 
           buildah bud -f $file -t harbor.internal.sealeo.io/bingo/test-image:$solutionVersion
-          
+
         done
   volumes:
     - name: gitea-ssh-private-key
