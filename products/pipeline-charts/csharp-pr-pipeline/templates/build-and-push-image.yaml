@@ -53,8 +53,8 @@ spec:
           solutionVersion=$(<$folder/Directory.Build.props)
           echo "Found version: $solutionVersion"
 
-
-
+          buildah bud -f $file -t harbor.internal.sealeo.io/bingo/test-image:$solutionVersion
+          
         done
   volumes:
     - name: gitea-ssh-private-key
