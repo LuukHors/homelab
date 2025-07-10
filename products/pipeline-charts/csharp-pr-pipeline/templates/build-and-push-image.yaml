@@ -37,9 +37,6 @@ spec:
       volumeMounts:
         - name: harbor-robot-account-credentials
           mountPath: /.docker
-      securityContext:
-        runAsUser: 0
-        privileged: true
       image: quay.io/buildah/stable:v1.40.1
       script: |
         shopt -s globstar
@@ -55,7 +52,7 @@ spec:
 
           solutionVersion=$(<$folder/Directory.Build.props)
           echo "Found version: $solutionVersion"
-
+          buildah unshare
           buildah bud -f $file -t harbor.internal.sealeo.io/bingo/test-image:$solutionVersion
 
         done
