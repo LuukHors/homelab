@@ -32,8 +32,8 @@ spec:
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
         cp -r test/ $(workspaces.gitrepo.path)/branch
 
-        git switch main
-        cp -r test/ $(workspaces.gitrepo.path)/main
+        # git switch main
+        # cp -r test/ $(workspaces.gitrepo.path)/main
         
     # replace test/ with the actual repository (not full) name.
     - name: find-and-build-images
