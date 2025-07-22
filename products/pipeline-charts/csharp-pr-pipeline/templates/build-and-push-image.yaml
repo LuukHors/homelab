@@ -30,7 +30,11 @@ spec:
         echo 'Cloning repository: $(params.repository)'
         echo 'Cloning branch: $(params.branch)'
         git clone ssh://git@gitea-ssh.gitea.svc.cluster.local/$(params.repository).git -b $(params.branch)
-        cp -r test/ $(workspaces.gitrepo.path)
+        cp -r test/ $(workspaces.gitrepo.path)/branch
+
+        git switch main
+        cp -r test/ $(workspaces.gitrepo.path)/main
+        
     # replace test/ with the actual repository (not full) name.
     - name: find-and-build-images
       resources: {}
@@ -40,8 +44,8 @@ spec:
       image: moby/buildkit:latest
       script: |
         #!/bin/sh
-        
-        find $(workspaces.gitrepo.path)/test -name Dockerfile | while read -r file; do
+
+        find $(workspaces.gitrepo.path)/branch/test -name Dockerfile | while read -r file; do
           folder=$(dirname "$file")
           echo "Processing $file"
           echo "Getting version from $folder/Directory.Build.props"
@@ -59,7 +63,7 @@ spec:
             --frontend dockerfile.v0 \
             --local context=. \
             --local dockerfile=$folder \
-            --output type=image,name=harbor.internal.sealeo.io/bingo/test-image:$solutionVersion,push=true
+            --output type=image,name=harbor.internal.sealeo.io/bingo/test-image:$solutionVersion-$(params.branch)-$(context.pipelineRun.name),push=true
 
         done
   volumes:
