@@ -36,7 +36,7 @@ spec:
       resources: {}
       volumeMounts:
         - name: harbor-robot-account-credentials
-          mountPath: .docker/config.json
+          mountPath: /root/.docker/config.json
       image: moby/buildkit:latest
       script: |
         #!/bin/sh
