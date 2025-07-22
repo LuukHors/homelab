@@ -55,7 +55,7 @@ spec:
 
           buildctl --addr tcp://buildkitd.buildkit.svc.cluster.local:1234 \
             build \
-            --frontend Dockerfile \
+            --frontend dockerfile.v0 \
             --local context=. \
             --local dockerfile=$folder \
             --output type=image,name=harbor.internal.sealeo.io/bingo/test-image:$solutionVersion,push=true
