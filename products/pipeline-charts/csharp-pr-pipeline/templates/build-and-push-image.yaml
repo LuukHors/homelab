@@ -53,6 +53,8 @@ spec:
           solutionVersion=$(cat $folder/Directory.Build.props)
           echo "Found version: $solutionVersion"
 
+          cat $HOME/.docker/config.json
+
           buildctl --addr tcp://buildkitd.buildkit.svc.cluster.local:1234 \
             build \
             --frontend dockerfile.v0 \
