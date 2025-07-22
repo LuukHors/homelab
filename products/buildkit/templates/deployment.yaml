@@ -47,6 +47,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 30
           securityContext:
+            privileged: true
             runAsUser: 1000
             runAsGroup: 1000
           ports:
