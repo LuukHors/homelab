@@ -37,9 +37,6 @@ spec:
       volumeMounts:
         - name: harbor-robot-account-credentials
           mountPath: /root/.docker
-      env:
-        - name: DOCKER_CONFIG
-          value: /root/.docker/.dockerconfigjson
       image: moby/buildkit:latest
       script: |
         #!/bin/sh
