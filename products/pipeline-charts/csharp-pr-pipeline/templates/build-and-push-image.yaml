@@ -50,7 +50,7 @@ spec:
             exit 1
           fi
 
-          solutionVersion=$(<$folder/Directory.Build.props)
+          solutionVersion=$(cat $folder/Directory.Build.props)
           echo "Found version: $solutionVersion"
 
           buildctl --addr tcp://buildkit.buildkit.svc.cluster.local:1234 \
