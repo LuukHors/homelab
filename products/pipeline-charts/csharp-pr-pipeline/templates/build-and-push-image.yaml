@@ -37,11 +37,11 @@ spec:
       volumeMounts:
         - name: harbor-robot-account-credentials
           mountPath: /.docker
-      image: moby/buildkit:v0.23.2
+      image: moby/buildkit:latest
       securityContext:
         runAsUser: 0
       script: |
-        # shopt -s globstar
+        shopt -s globstar
         for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
           folder=$(dirname "$file")
           echo "Processing $file"
