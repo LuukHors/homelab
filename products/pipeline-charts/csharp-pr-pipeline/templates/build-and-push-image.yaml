@@ -40,6 +40,10 @@ spec:
       image: moby/buildkit:latest
       script: |
         #!/bin/sh
+        find /root/.docker | while read -r file; do
+          echo $file
+        done
+
         find $(workspaces.gitrepo.path)/test -name Dockerfile | while read -r file; do
           folder=$(dirname "$file")
           echo "Processing $file"
