@@ -38,13 +38,12 @@ spec:
         - name: harbor-robot-account-credentials
           mountPath: /.docker
       image: moby/buildkit:latest
-      shell: bash
       script: |
         #!/bin/bash
         shopt -s globstar
-        for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
+        find $(workspaces.gitrepo.path)/test -name Dockerfile | while read -r file; do
           folder=$(dirname "$file")
-          echo "Processing $file"
+          echo "Processing $dir/$file"
           echo "Getting version from $folder/Directory.Build.props"
 
           if [ ! -e $folder/Directory.Build.props ]; then
