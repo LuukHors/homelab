@@ -17,50 +17,13 @@ spec:
     spec:
       containers:
         - name: buildkitd
-          image: {{ .Values.buildkit.image }}
-          args:
-            - --addr
-            - unix:///run/user/1000/buildkit/buildkitd.sock
-            - --addr
-            - tcp://0.0.0.0:1234
-            # - --tlscacert
-            # - /certs/ca.pem
-            # - --tlscert
-            # - /certs/cert.pem
-            # - --tlskey
-            # - /certs/key.pem
-            - --oci-worker-no-process-sandbox
-          readinessProbe:
-            exec:
-              command:
-                - buildctl
-                - debug
-                - workers
-            initialDelaySeconds: 5
-            periodSeconds: 30
-          livenessProbe:
-            exec:
-              command:
-                - buildctl
-                - debug
-                - workers
-            initialDelaySeconds: 5
-            periodSeconds: 30
+          image: moby/buildkit:latest
           securityContext:
-            privileged: true
-            runAsUser: 1000
-            runAsGroup: 1000
-          ports:
-            - containerPort: 1234
+            privileged: true  # Run as root with full privileges
+          args: ["--addr", "unix:///run/buildkit/buildkitd.sock"]
           volumeMounts:
-            # - name: certs
-            #   readOnly: true
-            #   mountPath: /certs
-            - mountPath: /home/user/.local/share/buildkit
-              name: buildkitd
+            - name: buildkit-socket
+              mountPath: /run/buildkit
       volumes:
-        # - name: certs
-        #   secret:
-        #     secretName: buildkit-daemon-certs
-        - name: buildkitd
+        - name: buildkit-socket
           emptyDir: {}
