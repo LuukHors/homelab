@@ -46,11 +46,6 @@ spec:
                 - workers
             initialDelaySeconds: 5
             periodSeconds: 30
-          securityContext:
-            seccompProfile:
-              type: Unconfined
-            appArmorProfile:
-              type: Unconfined
             runAsUser: 1000
             runAsGroup: 1000
           ports:
