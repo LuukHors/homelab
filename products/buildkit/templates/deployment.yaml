@@ -19,8 +19,10 @@ spec:
         - name: buildkitd
           image: moby/buildkit:latest
           securityContext:
-            privileged: true  # Run as root with full privileges
-          args: ["--addr", "unix:///run/buildkit/buildkitd.sock"]
+            privileged: true
+          args: ["--addr", "tcp://0.0.0.0:1234"]
+          ports:
+            - containerPort: 1234
           volumeMounts:
             - name: buildkit-socket
               mountPath: /run/buildkit
