@@ -53,7 +53,7 @@ spec:
           solutionVersion=$(cat $folder/Directory.Build.props)
           echo "Found version: $solutionVersion"
 
-          buildctl --addr tcp://buildkit.buildkit.svc.cluster.local:1234 \
+          buildctl --addr tcp://buildkitd.buildkit.svc.cluster.local:1234 \
             build \
             --frontend Dockerfile \
             --local context=. \
