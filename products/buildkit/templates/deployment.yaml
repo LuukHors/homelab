@@ -46,6 +46,7 @@ spec:
                 - workers
             initialDelaySeconds: 5
             periodSeconds: 30
+          securityContext:
             runAsUser: 1000
             runAsGroup: 1000
           ports:
