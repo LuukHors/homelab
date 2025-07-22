@@ -37,10 +37,12 @@ spec:
       volumeMounts:
         - name: harbor-robot-account-credentials
           mountPath: /root/.docker
+      env:
+        - name: DOCKER_CONFIG
+          value: /root/.docker/.dockerconfigjson
       image: moby/buildkit:latest
       script: |
         #!/bin/sh
-        DOCKER_CONFIG=/root/.docker/.dockerconfigjson
 
         find $(workspaces.gitrepo.path)/test -name Dockerfile | while read -r file; do
           folder=$(dirname "$file")
