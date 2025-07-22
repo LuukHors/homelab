@@ -40,11 +40,7 @@ spec:
       image: moby/buildkit:latest
       script: |
         #!/bin/sh
-
-        find /root/.docker | while read -r file; do
-          echo $file
-        done
-
+        
         find $(workspaces.gitrepo.path)/test -name Dockerfile | while read -r file; do
           folder=$(dirname "$file")
           echo "Processing $file"
@@ -57,8 +53,6 @@ spec:
 
           solutionVersion=$(cat $folder/Directory.Build.props)
           echo "Found version: $solutionVersion"
-
-          cat $HOME/.docker/config.json
 
           buildctl --addr tcp://buildkitd.buildkit.svc.cluster.local:1234 \
             build \
