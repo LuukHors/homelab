@@ -33,9 +33,9 @@ spec:
         mkdir $(workspaces.gitrepo.path)/branch
         cp -r test/ $(workspaces.gitrepo.path)/branch
 
-        mkdir $(workspaces.gitrepo.path)/main
-        git switch main
-        cp -r test/ $(workspaces.gitrepo.path)/main
+        # mkdir $(workspaces.gitrepo.path)/main
+        # git switch main
+        # cp -r test/ $(workspaces.gitrepo.path)/main
         
     # replace test/ with the actual repository (not full) name.
     - name: find-and-build-images
