@@ -7,6 +7,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: {{ .Values.buildkit.replicas }}
+  revisionHistoryLimit: {{ .Values.buildkit.revisionHistoryLimit }}
   selector:
     matchLabels:
       app: buildkitd

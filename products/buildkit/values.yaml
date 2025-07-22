@@ -1,3 +1,4 @@
 buildkit:
   replicas: 1
   image: moby/buildkit:latest
+  revisionHistoryLimit: 0
