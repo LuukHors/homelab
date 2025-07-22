@@ -64,3 +64,5 @@ homelab:
       namespace: gitea
     tekton-pipelines:
       deploy: true
+    buildkit:
+      deploy: true
