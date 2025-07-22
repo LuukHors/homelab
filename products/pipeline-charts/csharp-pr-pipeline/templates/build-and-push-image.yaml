@@ -42,15 +42,15 @@ spec:
         #!/bin/sh
         find $(workspaces.gitrepo.path)/test -name Dockerfile | while read -r file; do
           folder=$(dirname "$file")
-          echo "Processing $folder/$file"
+          echo "Processing $file"
           echo "Getting version from $folder/Directory.Build.props"
 
-          if [ ! -e $dir/Directory.Build.props ]; then
-            echo "$dir/Directory.Build.props does not exist"
+          if [ ! -e $folder/Directory.Build.props ]; then
+            echo "$folder/Directory.Build.props does not exist"
             exit 1
           fi
 
-          solutionVersion=$(<$dir/Directory.Build.props)
+          solutionVersion=$(<$folder/Directory.Build.props)
           echo "Found version: $solutionVersion"
 
           buildctl --addr tcp://buildkit.buildkit.svc.cluster.local:1234 \
