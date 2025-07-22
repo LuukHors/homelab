@@ -65,7 +65,7 @@ spec:
             --frontend dockerfile.v0 \
             --local context=. \
             --local dockerfile=$folder \
-            --output type=image,name=harbor.internal.sealeo.io/bingo/test-image:$solutionVersion-$(params.branch)-$(context.taskRun.name),push=true
+            --output type=image,name=harbor.internal.sealeo.io/bingo/test-image:$solutionVersion-$(params.branch)-$(context.pipelineRun.uid),push=true
 
         done
   volumes:
