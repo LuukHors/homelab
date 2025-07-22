@@ -57,7 +57,7 @@ spec:
             build \
             --frontend Dockerfile \
             --local context=. \
-            --local dockerfile=$file \
+            --local dockerfile=$folder \
             --output type=image,name=harbor.internal.sealeo.io/bingo/test-image:$solutionVersion,push=true
 
         done
