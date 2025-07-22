@@ -41,7 +41,7 @@ spec:
       securityContext:
         runAsUser: 0
       script: |
-        #!/bin/sh
+        #!/bin/bash
         shopt -s globstar
         for file in $(workspaces.gitrepo.path)/test/**/Dockerfile; do
           folder=$(dirname "$file")
