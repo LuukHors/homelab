@@ -21,12 +21,12 @@ longhorn:
     storageOverProvisioningPercentage: '100'
     storageMinimalAvailablePercentage: '20' 
     upgradeChecker: false
-    failedBackupTTL: 60
+    failedBackupTTL: '60'
     logLevel: Warn
     backupCompressionMethod: lz4
     v2DataEngine: false
-    backupConcurrentLimit: 5
-    restoreConcurrentLimit: 5
+    backupConcurrentLimit: '5'
+    restoreConcurrentLimit: '5'
 
   longhornUI:
     replicas: 1
