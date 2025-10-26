@@ -35,6 +35,11 @@ homelab:
       deploy: true
     longhorn:
       deploy: true
+      ignoreDifferences:
+      - group: "apiextensions.k8s.io"
+        kind: "CustomResourceDefinition"
+        jqPathExpressions:
+          - ".spec.conversion.preserveUnknownFields"
     sealeo-temp:
       deploy: true
     harbor:
