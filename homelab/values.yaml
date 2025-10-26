@@ -39,7 +39,7 @@ homelab:
       - group: "apiextensions.k8s.io"
         kind: "CustomResourceDefinition"
         jqPathExpressions:
-          - ".spec.conversion.preserveUnknownFields"
+          - ".spec.preserveUnknownFields"
     sealeo-temp:
       deploy: true
     harbor:
