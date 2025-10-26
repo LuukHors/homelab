@@ -19,7 +19,7 @@ longhorn:
     defaultLonghornStaticStorageClass: longhorn
     defaultDataLocality: best-effort
     storageOverProvisioningPercentage: '100'
-    storageMinimalAvailablePercentage: 20
+    storageMinimalAvailablePercentage: '20' 
     upgradeChecker: false
     failedBackupTTL: 60
     logLevel: Warn
