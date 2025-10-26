@@ -1,7 +1,7 @@
 longhorn:
   persistence:
     defaultClass: true
-    defaultClassReplicaCount: 1
+    defaultClassReplicaCount: 1 
     defaultDataLocality: best-effort
     defaultReplicaAutoBalance: best-effort
     defaultDiskSelector:
@@ -18,7 +18,7 @@ longhorn:
     defaultReplicaCount: 1
     defaultLonghornStaticStorageClass: longhorn
     defaultDataLocality: best-effort
-    storageOverProvisioningPercentage: 100
+    storageOverProvisioningPercentage: '100'
     storageMinimalAvailablePercentage: 20
     upgradeChecker: false
     failedBackupTTL: 60
