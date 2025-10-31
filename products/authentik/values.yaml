@@ -1,6 +1,6 @@
 database:
   clusterName: authentik-postgres
-  replicas: 1
+  replicas: 2
   size: 16Gi
 
 authentik:
@@ -19,10 +19,10 @@ authentik:
             name: authentik-postgres-app
 
   worker:
-    replicas: 1
+    replicas: 2
 
   server:
-    replicas: 1
+    replicas: 2
     ingress:
       enabled: true
       annotations:
