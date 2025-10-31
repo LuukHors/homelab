@@ -32,8 +32,8 @@ data:
   oidc.tls.insecure.skip.verify: "false"
   oidc.config: |
     name: Authentik
-    issuer: https://auth.internal.sealeo.io/application/o/argocd/
-    clientID: uahqHkvSSsaLpnFr9I1v66STx1vDc812RdNa28mV
+    issuer: https://auth.internal.sealeo.io/application/o/argo-cd/
+    clientID: R2Fm0u5ls7of2eAOPuo53Vw2GI10K0CcNwZDHQbC
     clientSecret: $authentik-credentials:clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
-    logoutURL: https://auth.internal.sealeo.io/application/o/argocd/end-session/
+    logoutURL: https://auth.internal.sealeo.io/application/o/argo-cd/end-session/
