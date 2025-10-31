@@ -31,7 +31,7 @@ argo-cd:
   dex:
     enabled: false
 
-  redis:
+  redis-ha:
     enabled: true
     resources:
       limits:
@@ -41,6 +41,16 @@ argo-cd:
         memory: 128Mi
     exporter:
       enabled: false
+  # redis:
+  #   enabled: true
+  #   resources:
+  #     limits:
+  #       memory: 256Mi
+  #     requests:
+  #       cpu: 50m
+  #       memory: 128Mi
+  #   exporter:
+  #     enabled: false
 
   server:
     replicas: 2

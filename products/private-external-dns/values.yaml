@@ -33,6 +33,7 @@ external-dns:
     create: false
 
   service:
+    revisionHistoryLimit: 0
     enabled: true
 
   serviceAccount:
