@@ -22,7 +22,7 @@ harbor:
       - stdout
   registry:
     revisionHistoryLimit: 0
-    replicas: 2
+    replicas: 1
     existingSecret: harbor-secret
     credentials:
       existingSecret: harbor-secret
