@@ -18,6 +18,8 @@ harbor:
     revisionHistoryLimit: 0
     replicas: 2
     existingSecret: harbor-secret
+    jobLoggers:
+      - stdout
   registry:
     revisionHistoryLimit: 0
     replicas: 2
