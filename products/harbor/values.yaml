@@ -12,12 +12,21 @@ harbor:
         secretKeyRef:
           name: harbor-oidc-secret
           key: oidcConfig
+    existingSecret: harbor-secret
+    existingXsrfSecret: harbor-secret
   jobservice:
     revisionHistoryLimit: 0
+    replicas: 2
+    existingSecret: harbor-secret
   registry:
     revisionHistoryLimit: 0
+    replicas: 2
+    existingSecret: harbor-secret
+    credentials:
+      existingSecret: harbor-secret
   portal:
     revisionHistoryLimit: 0
+    replicas: 2
   expose:
     type: ingress
     tls:
@@ -53,8 +62,8 @@ harbor:
       filesystem:
         rootdirectory: /storage
 
-  existingSecretAdminPassword: harbor-admin-password
-  existingSecretAdminPasswordKey: HARBOR_ADMIN_PASSWORD
+  existingSecretAdminPassword: harbor-secret
+  existingSecretSecretKey: harbor-secret
 
   database:
     type: external
