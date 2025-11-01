@@ -1,5 +1,15 @@
 pihole:
-  replicaCount: 1
+  replicaCount: 2
+  revisionHistoryLimit: 0
+
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app: pihole
+          release: pihole
 
   extraEnvVars:
     FTLCONF_dns_listeningMode: 'all'
