@@ -37,7 +37,7 @@ authentik:
             - auth.internal.sealeo.io
 
   authentik:
-    log_level: info
+    log_level: debug
     postgresql:
       host: "authentik-postgres-rw"
       name: "app"
