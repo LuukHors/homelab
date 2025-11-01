@@ -71,3 +71,5 @@ homelab:
       deploy: true
     buildkit:
       deploy: true
+    descheduler:
+      deploy: true
