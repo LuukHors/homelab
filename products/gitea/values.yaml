@@ -1,9 +1,18 @@
 database:
   clusterName: gitea-postgres
-  replicas: 1
+  replicas: 2
   size: 16Gi
 
 gitea:
+  replicaCount: 2
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app: pihole
+          release: pihole
   service:
     ssh:
       clusterIP:
