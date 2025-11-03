@@ -12,6 +12,7 @@ harbor:
         secretKeyRef:
           name: harbor-oidc-secret
           key: oidcConfig
+    secretName: "root-ca-tls"
     existingSecret: harbor-secret
     existingXsrfSecret: harbor-secret
   jobservice:
