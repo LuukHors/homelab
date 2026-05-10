@@ -35,7 +35,7 @@ longhorn:
     replicas: 1
 
   ingress:
-    enabled: true
+    enabled: false
     host: longhorn.internal.sealeo.io
     tls: true
     tlsSecret: longhorn-tls
