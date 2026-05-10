@@ -5,6 +5,10 @@ argo-cd:
       format: json
       level: info
   
+  crds:
+    annotations:
+      argocd.argoproj.io/sync-options: ServerSideApply=true
+
   configs:
     cm:
       create: false
@@ -31,16 +35,14 @@ argo-cd:
   dex:
     enabled: false
 
-  redis-ha:
+  redis:
     enabled: true
     resources:
       limits:
-        memory: 256Mi
+        memory: 100Mi
       requests:
-        cpu: 50m
-        memory: 128Mi
-    exporter:
-      enabled: false
+        cpu: 30m
+        memory: 50Mi
 
   server:
     replicas: 2
@@ -51,17 +53,17 @@ argo-cd:
         cpu: 70m
         memory: 128Mi
   
-    ingress:
-      enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-dns"
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-      hostname: argo.sealeo.io
-      tls: true
-      extraHosts:
-        - name: argo.internal.sealeo.io
-          path: /
+    # ingress:
+    #   enabled: false
+    #   annotations:
+    #     cert-manager.io/cluster-issuer: "letsencrypt-dns"
+    #     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    #   hostname: argo.sealeo.io
+    #   tls: true
+    #   extraHosts:
+    #     - name: argo.internal.sealeo.io
+    #       path: /
 
     configEnabled: false
 
