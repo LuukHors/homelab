@@ -17,32 +17,32 @@ homelab:
           jsonPointers:
             - /spec/conversion/webhook/clientConfig/caBundle
     ingress-nginx:
-      deploy: true
+      deploy: false
     sealed-secrets:
-      deploy: true
+      deploy: false
     external-dns:
-      deploy: true
+      deploy: false
     private-external-dns:
-      deploy: true
+      deploy: false
     cert-manager:
-      deploy: true
+      deploy: false
     pihole:
-      deploy: true
+      deploy: false
     cloudnative-postgres:
-      deploy: true
+      deploy: false
     authentik:
-      deploy: true
+      deploy: false
     longhorn:
-      deploy: true
+      deploy: false
       ignoreDifferences:
       - group: "apiextensions.k8s.io"
         kind: "CustomResourceDefinition"
         jqPathExpressions:
           - ".spec.preserveUnknownFields"
     sealeo-temp:
-      deploy: true
+      deploy: false
     harbor:
-      deploy: true
+      deploy: false
       ignoreDifferences:
       - group: "apps"
         kind: "StatefulSet"
@@ -52,11 +52,11 @@ homelab:
     cilium:
       deploy: true
     prometheus-crd:
-      deploy: true
+      deploy: false
     prometheus:
-      deploy: true
+      deploy: false
     gitea:
-      deploy: true
+      deploy: false
       ignoreDifferences:
       - group: "apps"
         kind: "StatefulSet"
@@ -64,11 +64,11 @@ homelab:
           - ".spec.volumeClaimTemplates[].apiVersion"
           - ".spec.volumeClaimTemplates[].kind"
     gitea-pipelines:
-      deploy: true
+      deploy: false
       namespace: gitea
     tekton-pipelines:
-      deploy: true
+      deploy: false
     buildkit:
-      deploy: true
+      deploy: false
     descheduler:
-      deploy: true
+      deploy: false
