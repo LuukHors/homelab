@@ -33,7 +33,7 @@ homelab:
     authentik:
       deploy: false
     longhorn:
-      deploy: false
+      deploy: true
       ignoreDifferences:
       - group: "apiextensions.k8s.io"
         kind: "CustomResourceDefinition"
