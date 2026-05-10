@@ -11,7 +11,7 @@ sealed-secrets:
     port: 8080
 
   ingress:
-    enabled: true
+    enabled: false
     hostname: sealed-secrets.internal.sealeo.io
     path: /v1/cert.pem
     tls: false
