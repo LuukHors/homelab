@@ -3,9 +3,5 @@ kind: CiliumL2AnnouncementPolicy
 metadata:
   name: homelab-policy
 spec:
-  nodeSelector:
-    matchExpressions:
-      - key: node-role.kubernetes.io/control-plane
-        operator: DoesNotExist
   externalIPs: false
   loadBalancerIPs: true
