@@ -25,7 +25,7 @@ homelab:
     private-external-dns:
       deploy: false
     cert-manager:
-      deploy: false
+      deploy: true
     pihole:
       deploy: false
     cloudnative-postgres:
