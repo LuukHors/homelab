@@ -16,6 +16,8 @@ homelab:
           name: addresspools.metallb.io
           jsonPointers:
             - /spec/conversion/webhook/clientConfig/caBundle
+    envoy-gateway:
+      deploy: true
     ingress-nginx:
       deploy: false
     sealed-secrets:

@@ -1,0 +1,40 @@
+gateway-helm:
+  podDisruptionBudget:
+    minAvailable: 1
+
+  deployment:
+    envoyGateway:
+      resources:
+        limits:
+          memory: 256Mi
+        requests:
+          cpu: 50m
+          memory: 128Mi
+    replicas: 2
+
+  config:
+    envoyGateway:
+      logging:
+        level:
+          default: warn
+      extensionApis:
+        enableBackend: true
+
+defaultTlsCertificate:
+  addresses:
+    - sealeo.io
+    - *.sealeo.io
+    - *.internal.sealeo.io
+
+gateways:
+  private:
+    addresses:
+      - 192.168.178.250
+    serviceAddress: 192.168.178.250
+    replicas: 2
+    resources:
+      requests:
+        cpu: 75m
+        memory: 150Mi
+      limits:
+        memory: 300Mi

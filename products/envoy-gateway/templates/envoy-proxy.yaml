@@ -1,0 +1,26 @@
+{{- range $name, $gateway := .Values.gateways }}
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: envoy-gateway-{{ $name }}
+spec:
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyDeployment:
+        patch:
+          type: StrategicMerge
+          value:
+            spec:
+              revisionHistoryLimit: 0
+        replicas: {{ $gateway.replicas }}
+        container:
+          resources:
+            {{ toYaml $gateway.resources | nindent 12 }}
+      envoyService:
+        annotations:
+          'io.cilium/lb-ipam-ips': {{ $gateway.serviceAddress }}
+        externalTrafficPolicy: Local
+        allocateLoadBalancerNodePorts: false
+---
+{{- end }}
