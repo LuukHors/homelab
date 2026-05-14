@@ -17,6 +17,8 @@ argo-cd:
       createSecret: true
     rbac:
       create: false
+    params:
+      server.insecure: true
 
   controller:
     replicas: 1
