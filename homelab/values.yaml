@@ -19,7 +19,7 @@ homelab:
     ingress-nginx:
       deploy: false
     sealed-secrets:
-      deploy: true
+      deploy: false
     external-dns:
       deploy: false
     private-external-dns:
@@ -33,7 +33,7 @@ homelab:
     authentik:
       deploy: false
     longhorn:
-      deploy: true
+      deploy: false
       ignoreDifferences:
       - group: "apiextensions.k8s.io"
         kind: "CustomResourceDefinition"
