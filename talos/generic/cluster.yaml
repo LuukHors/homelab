@@ -7,13 +7,16 @@ cluster:
   network:
     cni:
       name: none
+    podSubnets:
+      - 100.100.0.0/17
+    serviceSubnets:
+      - 100.100.128.0/19
+  
   proxy:
     disabled: true
-  
   controllerManager:
     extraArgs:
       bind-address: 0.0.0.0
-
   scheduler:
     extraArgs:
       bind-address: 0.0.0.0

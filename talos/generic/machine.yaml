@@ -1,13 +1,6 @@
 machine:
   certSANs:
-    - 192.168.178.160
-    - 192.168.178.161
-    - 192.168.178.162
-    - 192.168.178.163
     - 192.168.178.164
-    - 192.168.178.165
-    - 192.168.178.166 # Virtual ip
-    - cluster.sealeo.io # Domain name
   features:
     hostDNS:
       enabled: false
@@ -15,7 +8,9 @@ machine:
     kubePrism:
       enabled: true
       port: 7445
-  network:
-    nameservers:
-      - 1.1.1.1
-      - 1.0.0.1
+---
+apiVersion: v1alpha1
+kind: ResolverConfig
+nameservers:
+  - address: 1.1.1.1
+  - address: 1.0.0.1

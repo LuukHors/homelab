@@ -8,7 +8,7 @@ machine:
 ---
 apiVersion: v1alpha1
 kind: HostnameConfig
-hostname: minipc-control-plane-2
+hostname: minipc-control-plane-1
 auto: off
 ---
 apiVersion: v1alpha1

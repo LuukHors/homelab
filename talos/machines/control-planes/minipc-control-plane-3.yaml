@@ -1,18 +1,25 @@
 machine:
   type: controlplane
-
-  network:
-    interfaces:
-    - deviceSelector:
-        physical: true
-      dhcp: true
-      vip:
-        ip: 192.168.178.166
-    hostname: minipc-control-plane-3
-
   nodeLabels:
     topology.kubernetes.io/zone: ""
     topology.kubernetes.io/region: ""
-
   install:
-    disk: /dev/sdb
+    disk: /dev/sda
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+hostname: minipc-control-plane-3
+auto: off
+---
+apiVersion: v1alpha1
+kind: DHCPv4Config
+name: enp1s0
+---
+apiVersion: v1alpha1
+kind: Layer2VIPConfig
+name: 192.168.178.166
+link: enp1s0
+---
+apiVersion: v1alpha1
+kind: LinkConfig
+name: enp1s0

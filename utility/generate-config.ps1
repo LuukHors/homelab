@@ -1,5 +1,6 @@
 $repoPath = "/home/luukh/code/homelab"
-$kubernetesVersion = "1.32.2"
+$kubernetesVersion = "1.35.5"
+$talosVersion = "v1.12.7"
 
 if(-not (Get-Module powershell-yaml -ListAvailable)) {
     Install-Module powershell-yaml -Scope CurrentUser -Force
@@ -18,6 +19,7 @@ Get-ChildItem ../talos/machines/workers | Foreach-Object {
         --config-patch=@$repoPath/talos/generic/machine.yaml `
         --config-patch-worker=@$($_.FullName) `
         --kubernetes-version=$kubernetesVersion `
+        --talos-version=$talosVersion `
         --force
 }
 
@@ -32,5 +34,6 @@ Get-ChildItem ../talos/machines/control-planes | Foreach-Object {
         --config-patch=@$repoPath/talos/generic/machine.yaml `
         --config-patch-control-plane=@$($_.FullName) `
         --kubernetes-version=$kubernetesVersion `
+        --talos-version=$talosVersion `
         --force
 }
