@@ -21,7 +21,7 @@ gateway-helm:
         enableBackend: true
 
 defaultTlsCertificate:
-  addresses:
+  domains:
     - 'sealeo.io'
     - '*.sealeo.io'
     - '*.internal.sealeo.io'
