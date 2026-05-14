@@ -22,9 +22,9 @@ gateway-helm:
 
 defaultTlsCertificate:
   addresses:
-    - sealeo.io
-    - *.sealeo.io
-    - *.internal.sealeo.io
+    - 'sealeo.io'
+    - '*.sealeo.io'
+    - '*.internal.sealeo.io'
 
 gateways:
   private:
