@@ -19,7 +19,7 @@ homelab:
     ingress-nginx:
       deploy: false
     sealed-secrets:
-      deploy: false
+      deploy: true
     external-dns:
       deploy: false
     private-external-dns:
