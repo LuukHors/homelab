@@ -52,7 +52,15 @@ argo-cd:
       requests:
         cpu: 70m
         memory: 128Mi
-  
+    httproute:
+      enabled: true
+      parentRefs:
+        - name: envoy-gateway-private
+          namespace: envoy-gateway
+          sectionName: web-https
+      hostnames:
+        - 'argo.internal.sealeo.io'
+
     # ingress:
     #   enabled: false
     #   annotations:
