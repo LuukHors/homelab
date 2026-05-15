@@ -3,6 +3,11 @@ external-dns:
     # - crd
     - service
     - ingress
+    - gateway-httproute
+    - gateway-tlsroute
+    - gateway-udproute
+    - gateway-tcproute
+    - gateway-grpcroute
 
   provider: pihole
 

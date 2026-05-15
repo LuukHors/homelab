@@ -25,7 +25,7 @@ homelab:
     external-dns:
       deploy: false
     private-external-dns:
-      deploy: false
+      deploy: true
     cert-manager:
       deploy: true
     pihole:
