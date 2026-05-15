@@ -7,7 +7,8 @@ metadata:
 spec:
   hostnames:
     - {{ .Values.pihole.virtualHost | squote }}
-  parentRefs: {{ .Values.httpRoute.parentRefs }}
+  parentRefs: 
+    {{- toYaml .Values.httpRoute.parentRefs | nindent 4 }}
   rules:
     - backendRefs:
       - kind: Service
