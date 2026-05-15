@@ -23,8 +23,17 @@ authentik:
 
   server:
     replicas: 2
+    route:
+      main:
+        enabled: true
+        hostnames:
+          - 'auth.internal.sealeo.io'
+        parentRefs:
+          - name: envoy-gateway-private
+            namespace: envoy-gateway
+            sectionName: web-https
     ingress:
-      enabled: true
+      enabled: false
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-dns
       hosts:

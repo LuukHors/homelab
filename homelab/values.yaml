@@ -33,7 +33,7 @@ homelab:
     cloudnative-postgres:
       deploy: true
     authentik:
-      deploy: false
+      deploy: true
     longhorn:
       deploy: true
       ignoreDifferences:
