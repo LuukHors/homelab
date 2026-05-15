@@ -34,6 +34,18 @@ longhorn:
   longhornUI:
     replicas: 1
 
+  httproute:
+    # -- Setting that allows Longhorn to generate HTTPRoute records for the Longhorn UI service using Gateway API.
+    enabled: true
+    # -- Gateway references for HTTPRoute. Specify which Gateway(s) should handle this route.
+    parentRefs:
+      parentRefs:
+        - name: envoy-gateway-private
+          namespace: envoy-gateway
+          sectionName: web-https
+    hostnames:
+      - 'longhorn.internal.sealeo.io'
+
   ingress:
     enabled: false
     host: longhorn.internal.sealeo.io
