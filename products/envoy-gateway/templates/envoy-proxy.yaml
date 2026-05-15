@@ -18,6 +18,8 @@ spec:
           resources:
             {{ toYaml $gateway.resources | nindent 12 }}
       envoyService:
+        annotations:
+          'io.cilium/lb-ipam-ips': {{ $gateway.serviceAddress }}
         externalTrafficPolicy: Cluster
         allocateLoadBalancerNodePorts: false
 ---

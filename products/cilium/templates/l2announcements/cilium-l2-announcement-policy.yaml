@@ -3,7 +3,7 @@ kind: CiliumL2AnnouncementPolicy
 metadata:
   name: homelab-policy
 spec:
-  externalIPs: false
+  externalIPs: true
   loadBalancerIPs: true
   nodeSelector:
     matchExpressions:
