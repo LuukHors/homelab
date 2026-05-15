@@ -5,3 +5,7 @@ metadata:
 spec:
   externalIPs: false
   loadBalancerIPs: true
+  nodeSelector:
+    matchExpressions:
+      - key: node-role.kubernetes.io/control-plane
+        operator: DoesNotExist
