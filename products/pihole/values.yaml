@@ -1,3 +1,10 @@
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: envoy-gateway-private
+      namespace: envoy-gateway
+      sectionName: web-https
+
 pihole:
   replicaCount: 1
   revisionHistoryLimit: 0
@@ -32,7 +39,7 @@ pihole:
   virtualHost: pihole.internal.sealeo.io
 
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: nginx
     annotations: 
       cert-manager.io/cluster-issuer: "letsencrypt-dns"
