@@ -20,7 +20,7 @@ spec:
       envoyService:
         annotations:
           'io.cilium/lb-ipam-ips': {{ $gateway.serviceAddress }}
-        externalTrafficPolicy: Cluster
+        externalTrafficPolicy: Local
         allocateLoadBalancerNodePorts: false
 ---
 {{- end }}
