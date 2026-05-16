@@ -49,7 +49,7 @@ data:
   oidc.config: |
     name: Authentik
     issuer: https://auth.internal.sealeo.io/application/o/argo-cd/
-    clientID: R2Fm0u5ls7of2eAOPuo53Vw2GI10K0CcNwZDHQbC
+    clientID: 5aaJhiqdM6u0mCPApUPNOTqgUd28GVIDGLwy5lAf
     clientSecret: $authentik-credentials:clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
     logoutURL: https://auth.internal.sealeo.io/application/o/argo-cd/end-session/
