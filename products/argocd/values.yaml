@@ -4,7 +4,11 @@ argo-cd:
     logging:
       format: json
       level: info
-  
+    hostAliases:
+      - ip: 192.168.178.250
+        hostnames:
+          - auth.internal.sealeo.io
+      
   crds:
     annotations:
       argocd.argoproj.io/sync-options: ServerSideApply=true
