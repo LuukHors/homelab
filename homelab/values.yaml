@@ -3,6 +3,12 @@ homelab:
   products:
     argocd:
       deploy: true
+      ignoreDifferences:
+      - group: gateway.networking.k8s.io
+        kind: HTTPRoute
+        jsonPointers:
+        - /spec/parentRefs/0/group
+        - /spec/parentRefs/0/kind
     metallb:
       deploy: false
       ignoreDifferences:
