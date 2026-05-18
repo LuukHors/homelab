@@ -6,12 +6,12 @@ homelab:
     metallb:
       deploy: false
       ignoreDifferences:
-        - group: "apiextensions.k8s.io"
+        - group: apiextensions.k8s.io
           kind: CustomResourceDefinition
           name: bgppeers.metallb.io
           jsonPointers:
             - /spec/conversion/webhook/clientConfig/caBundle
-        - group: "apiextensions.k8s.io"
+        - group: apiextensions.k8s.io
           kind: CustomResourceDefinition
           name: addresspools.metallb.io
           jsonPointers:
@@ -37,20 +37,26 @@ homelab:
     longhorn:
       deploy: true
       ignoreDifferences:
-      - group: "apiextensions.k8s.io"
-        kind: "CustomResourceDefinition"
+      - group: gateway.networking.k8s.io
+        kind: HttpRoute
+        jsonPointers:
+        - /spec/parentRefs/*/group
+        - /spec/parentRefs/*/kind
+        - /spec/parentRefs/*/weight
+      - group: apiextensions.k8s.io
+        kind: CustomResourceDefinition
         jqPathExpressions:
-          - ".spec.preserveUnknownFields"
+          - .spec.preserveUnknownFields
     sealeo-temp:
       deploy: false
     harbor:
       deploy: false
       ignoreDifferences:
-      - group: "apps"
-        kind: "StatefulSet"
+      - group: apps
+        kind: StatefulSet
         jqPathExpressions:
-          - ".spec.volumeClaimTemplates[].apiVersion"
-          - ".spec.volumeClaimTemplates[].kind"
+          - .spec.volumeClaimTemplates[].apiVersion
+          - .spec.volumeClaimTemplates[].kind
     cilium:
       deploy: true
     prometheus-crd:
@@ -60,11 +66,11 @@ homelab:
     gitea:
       deploy: false
       ignoreDifferences:
-      - group: "apps"
-        kind: "StatefulSet"
+      - group: apps
+        kind: StatefulSet
         jqPathExpressions:
-          - ".spec.volumeClaimTemplates[].apiVersion"
-          - ".spec.volumeClaimTemplates[].kind"
+          - .spec.volumeClaimTemplates[].apiVersion
+          - .spec.volumeClaimTemplates[].kind
     gitea-pipelines:
       deploy: false
       namespace: gitea
