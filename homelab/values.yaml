@@ -40,9 +40,9 @@ homelab:
       - group: gateway.networking.k8s.io
         kind: HttpRoute
         jsonPointers:
-        - /spec/parentRefs/*/group
-        - /spec/parentRefs/*/kind
-        - /spec/parentRefs/*/weight
+        - /spec/backendRefs/*/group
+        - /spec/backendRefs/*/kind
+        - /spec/backendRefs/*/weight
       - group: apiextensions.k8s.io
         kind: CustomResourceDefinition
         jqPathExpressions:
