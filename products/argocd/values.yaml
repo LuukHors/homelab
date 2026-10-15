@@ -60,7 +60,7 @@ argo-cd:
         memory: 128Mi
     
     httproute:
-      enabled: false
+      enabled: true
       parentRefs:
         - name: envoy-gateway-private
           namespace: envoy-gateway

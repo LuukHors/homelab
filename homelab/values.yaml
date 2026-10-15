@@ -46,7 +46,7 @@ homelab:
         - /spec/rules/0/backendRefs/0/kind
         - /spec/rules/0/backendRefs/0/weight
     cloudnative-postgres:
-      deploy: false
+      deploy: true
     authentik:
       deploy: false
       ignoreDifferences:
@@ -103,4 +103,4 @@ homelab:
     buildkit:
       deploy: false
     descheduler:
-      deploy: false
+      deploy: true
