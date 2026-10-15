@@ -23,19 +23,19 @@ homelab:
           jsonPointers:
             - /spec/conversion/webhook/clientConfig/caBundle
     envoy-gateway:
-      deploy: false
+      deploy: true
     ingress-nginx:
       deploy: false
     sealed-secrets:
       deploy: true
     external-dns:
-      deploy: false
+      deploy: true
     private-external-dns:
       deploy: false
     cert-manager:
-      deploy: false
+      deploy: true
     pihole:
-      deploy: false
+      deploy: true
       ignoreDifferences:
       - group: gateway.networking.k8s.io
         kind: HTTPRoute
@@ -59,7 +59,7 @@ homelab:
         - /spec/rules/0/backendRefs/0/kind
         - /spec/rules/0/backendRefs/0/weight
     longhorn:
-      deploy: false
+      deploy: true
       ignoreDifferences:
       - group: gateway.networking.k8s.io
         kind: HTTPRoute
