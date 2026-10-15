@@ -1,13 +1,25 @@
 external-dns:
+  global:
+    security:
+      allowInsecureImages: true
+  image:
+    registry: registry.k8s.io
+    repository: external-dns/external-dns
+    tag: v0.21.0
   sources:
     # - crd
     - service
     - ingress
+    - gateway-httproute
+    - gateway-tlsroute
+    - gateway-udproute
+    - gateway-tcproute
+    - gateway-grpcroute
 
   provider: cloudflare
 
   extraArgs:
-    exclude-target-net: 192.168.178.245/24
+    exclude-target-net: 192.168.1.0/24
 
   validation:
     enabled: true
