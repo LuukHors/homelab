@@ -27,7 +27,7 @@ authentik:
       main:
         enabled: true
         hostnames:
-          - 'auth.internal.lhhl.cloud'
+          - 'auth.internal.sealeo.io'
         parentRefs:
           - name: envoy-gateway-private
             namespace: envoy-gateway

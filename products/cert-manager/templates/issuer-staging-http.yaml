@@ -4,7 +4,7 @@ metadata:
   name: letsencrypt-staging-http
 spec:
   acme:
-    email: lets-encrypt@lhhl.cloud
+    email: lets-encrypt@sealeo.io
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-key

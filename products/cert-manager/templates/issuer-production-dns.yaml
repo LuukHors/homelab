@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: lets-encrypt@lhhl.cloud
+    email: lets-encrypt@sealeo.io
     privateKeySecretRef:
       name: letsencrypt-key
     solvers:

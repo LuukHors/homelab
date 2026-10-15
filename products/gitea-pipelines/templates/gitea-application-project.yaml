@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos: 
-    - https://git.internal.lhhl.cloud/*
+    - https://git.internal.sealeo.io/*
     - https://github.com/LuukHors/homelab
   destinations:
     - namespace: gitea

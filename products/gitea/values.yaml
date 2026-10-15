@@ -22,11 +22,11 @@ gitea:
     annotations:
       cert-manager.io/cluster-issuer: "letsencrypt-dns"
     hosts:
-      - host: git.internal.lhhl.cloud
+      - host: git.internal.sealeo.io
     tls:
     - secretName: gitea-tls
       hosts:
-        - git.internal.lhhl.cloud
+        - git.internal.sealeo.io
 
   persistence:
     enabled: true

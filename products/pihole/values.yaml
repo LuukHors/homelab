@@ -37,7 +37,7 @@ pihole:
 
     type: ClusterIP
 
-  virtualHost: pihole.internal.lhhl.cloud
+  virtualHost: pihole.internal.sealeo.io
 
   ingress:
     enabled: false
@@ -48,10 +48,10 @@ pihole:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     path: /
     hosts:
-      - pihole.internal.lhhl.cloud
+      - pihole.internal.sealeo.io
     tls:
       - hosts:
-          - pihole.internal.lhhl.cloud
+          - pihole.internal.sealeo.io
         secretName: pihole-web-tls
 
   admin:

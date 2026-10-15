@@ -19,7 +19,7 @@ external-dns:
   domainFilters: []
 
   excludeDomains:
-    - 'internal.lhhl.cloud'
+    - 'internal.sealeo.io'
 
   regexDomainFilter: ""
   regexDomainExclusion: ""

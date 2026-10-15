@@ -39,12 +39,12 @@ harbor:
         secretName: "harbor-tls"
     ingress:
       hosts:
-        core: harbor.internal.lhhl.cloud
+        core: harbor.internal.sealeo.io
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-dns
         ingress.kubernetes.io/ssl-redirect: "true"
 
-  externalURL: https://harbor.internal.lhhl.cloud
+  externalURL: https://harbor.internal.sealeo.io
 
   persistence:
     enabled: true

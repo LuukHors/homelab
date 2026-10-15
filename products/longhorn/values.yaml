@@ -43,11 +43,11 @@ longhorn:
         namespace: envoy-gateway
         sectionName: web-https
     hostnames:
-      - 'longhorn.internal.lhhl.cloud'
+      - 'longhorn.internal.sealeo.io'
 
   ingress:
     enabled: false
-    host: longhorn.internal.lhhl.cloud
+    host: longhorn.internal.sealeo.io
     tls: true
     tlsSecret: longhorn-tls
     annotations:
