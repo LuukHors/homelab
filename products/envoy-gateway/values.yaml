@@ -22,9 +22,9 @@ gateway-helm:
 
 defaultTlsCertificate:
   domains:
-    - 'sealeo.io'
-    - '*.sealeo.io'
-    - '*.internal.sealeo.io'
+    - 'lhhl.cloud'
+    - '*.lhhl.cloud'
+    - '*.internal.lhhl.cloud'
 
 gateways:
   private:

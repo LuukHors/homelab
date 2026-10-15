@@ -7,7 +7,7 @@ argo-cd:
     hostAliases:
       - ip: 192.168.178.250
         hostnames:
-          - auth.internal.sealeo.io
+          - auth.internal.lhhl.cloud
       
   crds:
     annotations:
@@ -60,13 +60,13 @@ argo-cd:
         memory: 128Mi
     
     httproute:
-      enabled: true
+      enabled: false
       parentRefs:
         - name: envoy-gateway-private
           namespace: envoy-gateway
           sectionName: web-https
       hostnames:
-        - 'argo.internal.sealeo.io'
+        - 'argo.internal.lhhl.cloud'
       rules:
         - matches:
             - path:
@@ -82,10 +82,10 @@ argo-cd:
     #     cert-manager.io/cluster-issuer: "letsencrypt-dns"
     #     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    #   hostname: argo.sealeo.io
+    #   hostname: argo.lhhl.cloud
     #   tls: true
     #   extraHosts:
-    #     - name: argo.internal.sealeo.io
+    #     - name: argo.internal.lhhl.cloud
     #       path: /
 
     configEnabled: false

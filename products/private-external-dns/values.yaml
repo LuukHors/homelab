@@ -31,7 +31,7 @@ external-dns:
     secretName: "pihole-admin-secret"
 
   domainFilters:
-    - 'internal.sealeo.io'
+    - 'internal.lhhl.cloud'
 
   excludeDomains: []
 

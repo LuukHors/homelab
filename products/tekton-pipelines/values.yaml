@@ -1,5 +1,5 @@
 ingress:
   ingressClassName: nginx
-  hostname: tekton.internal.sealeo.io
+  hostname: tekton.internal.lhhl.cloud
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-dns"

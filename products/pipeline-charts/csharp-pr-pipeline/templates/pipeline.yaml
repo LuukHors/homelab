@@ -34,7 +34,7 @@ spec:
       - name: STATE
         value: pending
       - name: TARGET_URL
-        value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
+        value: https://tekton.internal.lhhl.cloud/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Acknowledged pipeline run by Tekton
       - name: GITEA_TOKEN_SECRET_NAME
@@ -74,7 +74,7 @@ spec:
       - name: STATE
         value: failure
       - name: TARGET_URL
-        value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
+        value: https://tekton.internal.lhhl.cloud/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Something went wrong during the pipeline execution
       - name: GITEA_TOKEN_SECRET_NAME
@@ -97,7 +97,7 @@ spec:
       - name: STATE
         value: success
       - name: TARGET_URL
-        value: https://tekton.internal.sealeo.io/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
+        value: https://tekton.internal.lhhl.cloud/#/namespaces/gitea/pipelineruns/$(context.pipelineRun.name)
       - name: DESCRIPTION
         value: Completed pipeline run by Tekton
       - name: GITEA_TOKEN_SECRET_NAME

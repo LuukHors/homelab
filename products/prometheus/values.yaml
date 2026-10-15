@@ -10,17 +10,17 @@ kube-prometheus-stack:
 
   alertmanager:
     enabled: true
-    externalUrl: https://alertmanager.internal.sealeo.io
+    externalUrl: https://alertmanager.internal.lhhl.cloud
     ingress:
       enabled: true
       hosts:
-        - alertmanager.internal.sealeo.io
+        - alertmanager.internal.lhhl.cloud
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-dns"
       tls:
         - secretName: alertmanager-general-tls
           hosts: 
-            - alertmanager.internal.sealeo.io
+            - alertmanager.internal.lhhl.cloud
     alertmanagerSpec:
       replicas: 1
       retention: 120h
@@ -48,14 +48,14 @@ kube-prometheus-stack:
 
     grafana.ini:
       auth:
-        signout_redirect_url: https://auth.internal.sealeo.io/application/o/grafana/end-session/
+        signout_redirect_url: https://auth.internal.lhhl.cloud/application/o/grafana/end-session/
       auth.generic_oauth:
         enabled: true
         name: Authentik
         scopes: "openid email profile"
-        auth_url: "https://auth.internal.sealeo.io/application/o/authorize/"
-        token_url: "https://auth.internal.sealeo.io/application/o/token/"
-        api_url: "https://auth.internal.sealeo.io/application/o/userinfo/"
+        auth_url: "https://auth.internal.lhhl.cloud/application/o/authorize/"
+        token_url: "https://auth.internal.lhhl.cloud/application/o/token/"
+        api_url: "https://auth.internal.lhhl.cloud/application/o/userinfo/"
         client_id: $__file{/etc/secrets/auth_generic_oauth/clientId}
         client_secret: $__file{/etc/secrets/auth_generic_oauth/clientSecret}
         allow_assign_grafana_admin: true
@@ -78,19 +78,19 @@ kube-prometheus-stack:
         url: https://grafana.net
       server:
         enable_gzip: true
-        domain: "https://grafana.internal.sealeo.io"
-        root_url: "https://grafana.internal.sealeo.io"
+        domain: "https://grafana.internal.lhhl.cloud"
+        root_url: "https://grafana.internal.lhhl.cloud"
 
     ingress:
       enabled: true
       hosts:
-      - grafana.internal.sealeo.io
+      - grafana.internal.lhhl.cloud
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-dns"
       tls:
       - secretName: grafana-general-tls
         hosts:
-        - grafana.internal.sealeo.io
+        - grafana.internal.lhhl.cloud
 
     persistence:
       enabled: false
@@ -132,10 +132,10 @@ kube-prometheus-stack:
     ingress:
       enabled: true
       hosts:
-       - prometheus.internal.sealeo.io
+       - prometheus.internal.lhhl.cloud
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-dns"
       tls:
         - secretName: prometheus-general-tls
           hosts:
-            - prometheus.internal.sealeo.io
+            - prometheus.internal.lhhl.cloud

@@ -44,12 +44,12 @@ data:
       namespaces:
         - gitea
 
-  url: https://argo.internal.sealeo.io
+  url: https://argo.internal.lhhl.cloud
   oidc.tls.insecure.skip.verify: "false"
   oidc.config: |
     name: Authentik
-    issuer: https://auth.internal.sealeo.io/application/o/argo-cd/
+    issuer: https://auth.internal.lhhl.cloud/application/o/argo-cd/
     clientID: 5aaJhiqdM6u0mCPApUPNOTqgUd28GVIDGLwy5lAf
     clientSecret: $authentik-credentials:clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
-    logoutURL: https://auth.internal.sealeo.io/application/o/argo-cd/end-session/
+    logoutURL: https://auth.internal.lhhl.cloud/application/o/argo-cd/end-session/

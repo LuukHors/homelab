@@ -27,23 +27,11 @@ authentik:
       main:
         enabled: true
         hostnames:
-          - 'auth.internal.sealeo.io'
+          - 'auth.internal.lhhl.cloud'
         parentRefs:
           - name: envoy-gateway-private
             namespace: envoy-gateway
             sectionName: web-https
-    ingress:
-      enabled: false
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-dns
-      hosts:
-        - auth.sealeo.io
-        - auth.internal.sealeo.io
-      tls:
-        - secretName: authentik-tls
-          hosts:
-            - auth.sealeo.io
-            - auth.internal.sealeo.io
 
   authentik:
     log_level: debug
