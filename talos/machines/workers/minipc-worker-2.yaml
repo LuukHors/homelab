@@ -4,7 +4,7 @@ machine:
     topology.kubernetes.io/zone: ""
     topology.kubernetes.io/region: ""
   install:
-    disk: /dev/sdb
+    disk: /dev/sda
 ---
 apiVersion: v1alpha1
 kind: HostnameConfig
