@@ -48,7 +48,7 @@ homelab:
     cloudnative-postgres:
       deploy: true
     authentik:
-      deploy: false
+      deploy: true
       ignoreDifferences:
       - group: gateway.networking.k8s.io
         kind: HTTPRoute
