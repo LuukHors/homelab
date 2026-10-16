@@ -34,5 +34,10 @@ spec:
           - group: ''
             kind: Secret
             name: default-tls-certificate
+          {{- range $certificate := $.Values.additionalCertificates }}
+          - group: ''
+            kind: Secret
+            name: {{ $certificate.name }}
+          {{- end }}
 ---
 {{- end }}

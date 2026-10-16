@@ -2,3 +2,29 @@ database:
   clusterName: rick-memes
   replicas: 1
   size: 10Gi
+
+httpRoute:
+  enabled: true
+  hostnames:
+    - rick-memes.sealeo.io
+    - rick-memes.nl
+  parentRefs:
+    - name: envoy-gateway-public
+      namespace: envoy-gateway
+      sectionName: web-https
+  rules:
+    - backendRefs:
+      - kind: Service
+        name: rick-memes
+        port: 3000
+        weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
+
+rick-memes:
+  deployment:
+    replicas: 1
+  pvc:
+    size: 16Gi

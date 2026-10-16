@@ -1,0 +1,17 @@
+{{- range $certificate := .Values.additionalCertificates }}
+kind: Certificate
+apiVersion: cert-manager.io/v1
+metadata:
+  name: {{ $certificate.name }}
+spec:
+  secretName: {{ $certificate.name }}
+  dnsNames:
+    {{- range $domain := $certificate.domains }}
+    - {{ $domain | quote }}
+    {{- end }}
+  issuerRef: {{ $certificate.issuerRef | toYaml | nindent 4 }}
+  revisionHistoryLimit: 1
+  usages:
+    - digital signature
+    - key encipherment
+{{- end }}
