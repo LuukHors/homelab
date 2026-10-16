@@ -38,3 +38,14 @@ gateways:
         memory: 150Mi
       limits:
         memory: 300Mi
+  public:
+    addresses:
+      - 95.99.147.238
+    serviceAddress: 192.168.1.252
+    replicas: 2
+    resources:
+      requests:
+        cpu: 75m
+        memory: 150Mi
+      limits:
+        memory: 300Mi

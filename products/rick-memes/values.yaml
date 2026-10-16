@@ -1,0 +1,4 @@
+database:
+  clusterName: rick-memes
+  replicas: 1
+  size: 10Gi

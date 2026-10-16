@@ -104,3 +104,5 @@ homelab:
       deploy: false
     descheduler:
       deploy: true
+    rick-memes:
+      deploy: true

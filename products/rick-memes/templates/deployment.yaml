@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rick-memes
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rick-memes
+  template:
+    metadata:
+      labels:
+        app: rick-memes
+    spec:
+      securityContext:
+        fsGroup: 1001
+      containers:
+        - name: app
+          image: markbrouwer/rick-memes:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: rick-memes-runtime
+          env:
+            - name: ACCESS_QUESTION
+              value: "Wat is de naam van Rick zijn hond?"
+            - name: UPLOAD_DIR
+              value: /app/uploads
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: rick-memes-app
+                  key: uri
+          volumeMounts:
+            - name: uploads
+              mountPath: /app/uploads
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: rick-memes-uploads
