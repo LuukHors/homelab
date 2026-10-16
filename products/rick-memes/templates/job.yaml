@@ -10,7 +10,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: migrate
-          image: markbrouwer/rick-memes:1.0.0-migrate
+          image: markbrouwer/rick-memes:1.1.0-migrate
           imagePullPolicy: IfNotPresent
           command: ["npm", "run", "db:migrate"]
           env:
