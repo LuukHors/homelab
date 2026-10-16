@@ -17,7 +17,7 @@ spec:
         fsGroup: 1001
       containers:
         - name: app
-          image: markbrouwer/rick-memes:1.0.0
+          image: markbrouwer/rick-memes:1.1.0
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
