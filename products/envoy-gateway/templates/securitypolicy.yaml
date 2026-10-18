@@ -6,9 +6,9 @@ metadata:
   name: {{ $name }}-security-policy
 spec:
   targetRefs:
-    - group: gateway.networking.k8s.io
-    	kind: Gateway
-    	name: {{ $name }}
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ $name }}
 {{- . | toYaml | nindent 2 }}
 {{- end }}
 {{- end }}
