@@ -9,5 +9,5 @@ spec:
     {{ range $name, $gateway := .Values.gateways }}
     - group: gateway.networking.k8s.io
       kind: Gateway
-      name: {{ $name }}
+      name: envoy-gateway-{{ $name }}
     {{ end }}
