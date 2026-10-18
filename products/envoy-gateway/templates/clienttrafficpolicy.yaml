@@ -4,8 +4,7 @@ metadata:
   name: enable-client-ip-detection
 spec:
   clientIPDetection:
-    xForwardedFor:
-      numTrustedHops: 1
+    directSourceIP: true
   targetRefs:
     {{ range $name, $gateway := .Values.gateways }}
     - group: gateway.networking.k8s.io
