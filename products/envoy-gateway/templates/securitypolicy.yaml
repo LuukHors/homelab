@@ -5,10 +5,10 @@ kind: SecurityPolicy
 metadata:
   name: {{ $name }}-security-policy
 spec:
-  targetRef:
-    group: gateway.networking.k8s.io
-    kind: Gateway
-    name: {{ $name }}
+  targetRefs:
+    - group: gateway.networking.k8s.io
+    	kind: Gateway
+    	name: {{ $name }}
 {{- . | toYaml | nindent 2 }}
 {{- end }}
 {{- end }}
