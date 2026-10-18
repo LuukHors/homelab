@@ -1,0 +1,13 @@
+{{- range $name, $gateway := .Values.gateways }}
+{{- with $gateway.securityPolicy }}
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: {{ $name }}-security-policy
+spec:
+  targetRef:
+    kind: Gateway
+    name: {{ $name }}
+{{- . | toYaml | nindent 2 }}
+{{- end }}
+{{- end }}
