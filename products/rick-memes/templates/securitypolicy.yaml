@@ -28,5 +28,5 @@ spec:
             - 198.41.128.0/17
   targetRefs:
     - group: gateway.networking.k8s.io
-      kind: HttpRoute
+      kind: HTTPRoute
       name: rick-memes
