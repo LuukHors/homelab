@@ -1,8 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: rick-memes-migrate-v1-3-0
+  generateName: rick-memes-migrate-v1-3-0-
   namespace: {{ .Release.Namespace }}
+  labels:
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    helm.sh/hook: pre-install
+    helm.sh/hook-weight: "-5"
+    helm.sh/hook-delete-policy: hook-succeeded
 spec:
   backoffLimit: 2
   template:
