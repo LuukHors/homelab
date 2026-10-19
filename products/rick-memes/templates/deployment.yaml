@@ -44,7 +44,8 @@ spec:
           volumeMounts:
             - name: uploads
               mountPath: /app/uploads
-          readOnlyRootFilesystem: true
+          securityContext:
+            readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
             runAsUser: 2000
             runAsGroup: 2000
