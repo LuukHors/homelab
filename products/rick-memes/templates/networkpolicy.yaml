@@ -9,7 +9,7 @@ spec:
       app: rick-memes
   policyTypes:
     - Ingress
-    - Egress
+    # - Egress
   ingress:
     - from: # only allow traffic from public envoy gateway
       - podSelector:
@@ -25,8 +25,4 @@ spec:
       ports:
         - protocol: TCP
           port: 3000
-  egress: {}
-    # - to:
-    #   - namespaceSelector:
-    #       matchLabels:
-    #         kubernetes.io/metadata.name: {{ .Release.Namespace }}
+  
