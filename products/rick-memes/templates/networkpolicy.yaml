@@ -8,20 +8,25 @@ spec:
     matchLabels:
       app: rick-memes
   policyTypes:
-  - Ingress
-  # - Egress
+    - Ingress
+    - Egress
   ingress:
-  - from: # only allow traffic from public envoy gateway
-    - podSelector:
-        matchLabels:
-          app.kubernetes.io/component: proxy
-          app.kubernetes.io/managed-by: envoy-gateway
-          app.kubernetes.io/name: envoy
-          gateway.envoyproxy.io/owning-gateway-name: envoy-gateway-public
-          gateway.envoyproxy.io/owning-gateway-namespace: envoy-gateway
-      namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: envoy-gateway
-    ports:
-      - protocol: TCP
-        port: 3000
+    - from: # only allow traffic from public envoy gateway
+      - podSelector:
+          matchLabels:
+            app.kubernetes.io/component: proxy
+            app.kubernetes.io/managed-by: envoy-gateway
+            app.kubernetes.io/name: envoy
+            gateway.envoyproxy.io/owning-gateway-name: envoy-gateway-public
+            gateway.envoyproxy.io/owning-gateway-namespace: envoy-gateway
+        namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: envoy-gateway
+      ports:
+        - protocol: TCP
+          port: 3000
+  egress:
+    - to:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: {{ .Release.Namespace }}
