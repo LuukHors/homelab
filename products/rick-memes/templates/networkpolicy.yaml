@@ -27,7 +27,11 @@ spec:
           port: 3000
   egress:
     - to:
-      - namespaceSelector:
+      - podSelector:
+          matchLabels:
+            cnpg.io/cluster: rick-memes
+            cnpg.io/instanceRole: primary
+        namespaceSelector:
           matchLabels:
             kubernetes.io/metadata.name: {{ .Release.Namespace }}
       ports:
