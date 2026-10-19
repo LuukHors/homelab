@@ -28,6 +28,7 @@ httpRoute:
 
 rick-memes:
   deployment:
+    revisionHistoryLimit: 0
     replicas: 1
   pvc:
     size: 16Gi
