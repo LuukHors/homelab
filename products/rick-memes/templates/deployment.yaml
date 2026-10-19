@@ -17,6 +17,8 @@ spec:
         runAsUser: 1000
         runAsNonRoot: true
         fsGroup: 1001
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: app
           image: markbrouwer/rick-memes:1.3.0
