@@ -6,7 +6,6 @@ database:
 httpRoute:
   enabled: true
   hostnames:
-    - rick-memes.sealeo.io
     - rick-memes.nl
   parentRefs:
     - group: gateway.networking.k8s.io
