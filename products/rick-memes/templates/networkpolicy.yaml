@@ -9,6 +9,7 @@ spec:
       app: rick-memes
   policyTypes:
   - Ingress
+  - Egress
   ingress:
   - from: # only allow traffic from public envoy gateway
     - podSelector:
