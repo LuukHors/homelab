@@ -10,7 +10,7 @@ httpRoute:
     - rick-memes.nl
   parentRefs:
     - group: gateway.networking.k8s.io
-      Kind: Gateway
+      kind: Gateway
       name: envoy-gateway-public
       namespace: envoy-gateway
       sectionName: web-https
