@@ -9,12 +9,15 @@ httpRoute:
     - rick-memes.sealeo.io
     - rick-memes.nl
   parentRefs:
-    - name: envoy-gateway-public
+    - group: gateway.networking.k8s.io
+      Kind: Gateway
+      name: envoy-gateway-public
       namespace: envoy-gateway
       sectionName: web-https
   rules:
     - backendRefs:
-      - kind: Service
+      - group: ''
+        kind: Service
         name: rick-memes
         port: 3000
         weight: 1
