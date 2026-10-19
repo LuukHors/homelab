@@ -26,7 +26,7 @@ httpRoute:
             type: PathPrefix
             value: /
 
-rick-memes:
+rickMemes:
   deployment:
     revisionHistoryLimit: 0
     replicas: 1

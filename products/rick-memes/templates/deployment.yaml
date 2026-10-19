@@ -4,8 +4,8 @@ metadata:
   name: rick-memes
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: {{ .Values.rick-memes.deployment.replicas }}
-  revisionHistoryLimit: {{ .Values.rick-memes.deployment.revisionHistoryLimit }}
+  replicas: {{ .Values.rickMemes.deployment.replicas }}
+  revisionHistoryLimit: {{ .Values.rickMemes.deployment.revisionHistoryLimit }}
   selector:
     matchLabels:
       app: rick-memes
