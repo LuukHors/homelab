@@ -34,8 +34,6 @@ spec:
           matchLabels:
             kubernetes.io/metadata.name: kube-system
       ports:
-        - protocol: TCP
-          port: 5432
         - protocol: UDP
           port: 53
         - protocol: TCP
