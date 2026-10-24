@@ -9,19 +9,6 @@ homelab:
         jsonPointers:
         - /spec/parentRefs/0/group
         - /spec/parentRefs/0/kind
-    metallb:
-      deploy: false
-      ignoreDifferences:
-        - group: apiextensions.k8s.io
-          kind: CustomResourceDefinition
-          name: bgppeers.metallb.io
-          jsonPointers:
-            - /spec/conversion/webhook/clientConfig/caBundle
-        - group: apiextensions.k8s.io
-          kind: CustomResourceDefinition
-          name: addresspools.metallb.io
-          jsonPointers:
-            - /spec/conversion/webhook/clientConfig/caBundle
     envoy-gateway:
       deploy: true
     ingress-nginx:
@@ -95,13 +82,6 @@ homelab:
         jqPathExpressions:
           - .spec.volumeClaimTemplates[].apiVersion
           - .spec.volumeClaimTemplates[].kind
-    gitea-pipelines:
-      deploy: false
-      namespace: gitea
-    tekton-pipelines:
-      deploy: false
-    buildkit:
-      deploy: false
     descheduler:
       deploy: true
     rick-memes:

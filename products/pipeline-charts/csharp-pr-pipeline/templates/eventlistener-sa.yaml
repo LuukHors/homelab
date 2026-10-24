@@ -1,5 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  namespace: {{ .Values.pipeline.namespace }}
-  name: {{ .Values.pipeline.name }}-eventlistener-service-account
