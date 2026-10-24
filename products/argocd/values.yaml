@@ -1,6 +1,10 @@
 argo-cd:
   global:
     revisionHistoryLimit: 0
+    topologySpreadConstraints: 
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
     networkPolicy:
       create: true
     logging:
