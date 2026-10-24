@@ -23,6 +23,9 @@ authentik:
 
   server:
     replicas: 2
+    env:
+      - name: AUTHENTIK_LISTEN__TRUSTED_PROXY_CIDRS
+        value: '100.100.0.0/17,100.100.128.0/19'
     route:
       main:
         enabled: true
