@@ -27,6 +27,7 @@ authentik:
       main:
         enabled: true
         https: true
+        httpsRedirect: true
         hostnames:
           - 'auth.internal.sealeo.io'
         parentRefs:
