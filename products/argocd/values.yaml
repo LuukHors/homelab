@@ -4,10 +4,10 @@ argo-cd:
     logging:
       format: json
       level: info
-    hostAliases:
-      - ip: 192.168.1.250
-        hostnames:
-          - auth.internal.sealeo.io
+    # hostAliases:
+    #   - ip: 192.168.1.250
+    #     hostnames:
+    #       - auth.internal.sealeo.io
       
   crds:
     annotations:
@@ -58,7 +58,6 @@ argo-cd:
       requests:
         cpu: 70m
         memory: 128Mi
-    
     httproute:
       enabled: true
       parentRefs:
@@ -75,21 +74,7 @@ argo-cd:
           timeouts:
             request: 5m
             backendRequest: 5m
-
-    # ingress:
-    #   enabled: false
-    #   annotations:
-    #     cert-manager.io/cluster-issuer: "letsencrypt-dns"
-    #     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    #   hostname: argo.sealeo.io
-    #   tls: true
-    #   extraHosts:
-    #     - name: argo.internal.sealeo.io
-    #       path: /
-
     configEnabled: false
-
     rbacConfigCreate: false
 
   repoServer:

@@ -1,8 +1,8 @@
 control-planes:
-  minipc-control-plane-1: 192.168.178.164
-  minipc-control-plane-2: 192.168.178.160
-  minipc-control-plane-3: 192.168.178.161
+  minipc-control-plane-1: 192.168.1.160
+  minipc-control-plane-2: 192.168.1.161
+  minipc-control-plane-3: 192.168.1.162
 workers:
-  minipc-worker-1: 192.168.178.162
-  minipc-worker-2: 192.168.178.163
-  minipc-worker-3: 192.168.178.165
+  minipc-worker-1: 192.168.1.163
+  minipc-worker-2: 192.168.1.164
+  minipc-worker-3: 192.168.1.165
