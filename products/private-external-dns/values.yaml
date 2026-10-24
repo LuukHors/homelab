@@ -2,6 +2,7 @@ external-dns:
   global:
     security:
       allowInsecureImages: true
+  revisionHistoryLimit: 0
   image:
     registry: registry.k8s.io
     repository: external-dns/external-dns
