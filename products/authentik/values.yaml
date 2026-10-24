@@ -26,6 +26,7 @@ authentik:
     route:
       main:
         enabled: true
+        https: true
         hostnames:
           - 'auth.internal.sealeo.io'
         parentRefs:
