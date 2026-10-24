@@ -7,7 +7,6 @@ external-dns:
     repository: external-dns/external-dns
     tag: v0.24.0
   sources:
-    # - crd
     - service
     - ingress
     - gateway-httproute
@@ -19,7 +18,6 @@ external-dns:
   provider: pihole
 
   extraArgs:
-    pihole-api-version: 6
     target-net-filter: 192.168.1.0/24
 
   validation:
