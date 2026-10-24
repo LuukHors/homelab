@@ -1,6 +1,7 @@
 descheduler:
   kind: Deployment
   deschedulingInterval: 5m
+  revisionHistoryLimit: 0
   resources:
     requests:
       cpu: 30m
