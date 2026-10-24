@@ -1,13 +1,12 @@
 cert-manager:
   global:
+    revisionHistoryLimit: 0
     rbac:
       create: true
       aggregateClusterRoles: true
-
     podSecurityPolicy:
       enabled: false
       useAppArmor: true
-
     logLevel: 2
   
   crds:
