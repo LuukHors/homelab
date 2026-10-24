@@ -8,9 +8,3 @@ machine:
     kubePrism:
       enabled: true
       port: 7445
----
-apiVersion: v1alpha1
-kind: ResolverConfig
-nameservers:
-  - address: 1.1.1.1
-  - address: 1.0.0.1

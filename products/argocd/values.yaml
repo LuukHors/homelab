@@ -4,10 +4,6 @@ argo-cd:
     logging:
       format: json
       level: info
-    # hostAliases:
-    #   - ip: 192.168.1.250
-    #     hostnames:
-    #       - auth.internal.sealeo.io
       
   crds:
     annotations:
