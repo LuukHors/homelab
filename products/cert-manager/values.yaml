@@ -39,9 +39,6 @@ cert-manager:
       drop:
       - ALL
     readOnlyRootFilesystem: true
-
-    podmonitor:
-      enabled: false
   
   webhook:
     replicaCount: 1
