@@ -54,8 +54,6 @@ argo-cd:
 
   server:
     replicas: 2
-    nodeSelector:
-      kubernetes.io/hostname: minipc-worker-1
     resources:
       limits:
         memory: 512Mi
