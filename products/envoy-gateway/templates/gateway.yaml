@@ -4,11 +4,6 @@ kind: Gateway
 metadata:
   name: envoy-gateway-{{ $name }}
 spec:
-  addresses:
-    {{- range $gateway.addresses }}
-    - type: IPAddress
-      value: {{ . }}
-    {{- end }}
   gatewayClassName: envoy-gateway
   infrastructure:
     parametersRef:
