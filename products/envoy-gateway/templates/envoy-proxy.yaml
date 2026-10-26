@@ -12,6 +12,8 @@ spec:
           type: StrategicMerge
           value:
             spec:
+              nodeSelector:
+                kubernetes.io/hostname: minipc-worker-2
               revisionHistoryLimit: 0
         replicas: {{ $gateway.replicas }}
         container:
