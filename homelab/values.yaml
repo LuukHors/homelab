@@ -1,5 +1,6 @@
 homelab:
   deploy: true
+  dnsResolverIp: 192.168.1.248
   products:
     argocd:
       deploy: true

@@ -17,14 +17,17 @@ data:
             fallthrough in-addr.arpa ip6.arpa
             ttl 30
         }
-        {{- with .Values.homelab.dnsResolverIp }}
-        forward . {{ . }} {
+        {{- if .Values.homelab.dnsResolverIp }}
+        forward . {{ .Values.homelab.dnsResolverIp }} /etc/resolv.conf {
+           policy sequential
+           failover SERVFAIL REFUSED
            max_concurrent 1000
         }
-        {{- end }}
+        {{- else }}
         forward . /etc/resolv.conf {
            max_concurrent 1000
         }
+        {{- end }}
         cache 30 {
            disable success cluster.local
            disable denial cluster.local
